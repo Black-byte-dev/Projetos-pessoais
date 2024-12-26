@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Prog';
+    src: url(fontes/Efervescencia\ Programada.ttf) format('opentype');
+    font-weight: normal;
+}
+
+
+:root{
+    
+
+    /*
+    #3DDB26
+    #4BB13C
+    #4C8644
+    #425C3E
+    #2A3329
+    #2C332B
+    */
+    --cor0:#3DDB26;
+    --cor1:#4BB13C;
+    --cor2:#4C8644;
+    --cor3:#425C3E;
+    --cor4:#2A3329;
+    --cor5:#2C332B;
+    
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque:'Prog';
+    --fonte-android:'android';
+    
+}
+
+body{
+   background-color: var(--cor5);
+}
+
+nav img{
+    margin: 0px;
+    width: 5%;
+}
+
+header{
+    border-radius: 10px;
+    display: flex;
+    columns: 2;
+    background-color: var(--cor3);
+    box-shadow: 0px 0px 10px var(--cor0);
+}
+
+header img{
+    box-shadow: 5px 5px  10px var(--cor0);
+    border-radius: 150px;
+    width: 100px;
+    height: 100px;
+    margin: auto 0 auto 0; 
+}
+
+header h1{
+    text-shadow: 5px 5px 10px var(--cor5);
+    font-size: 6em;
+    font-family: var(--fonte-destaque);
+    color:var(--cor0);
+    margin: auto;
+    padding: 10px;
+}
+
+.Links{
+    display: blo;
+}
+
+nav{
+    padding: 20px;
+    display: grid;
+    border-radius: 10px 10px;
+    background-image: linear-gradient(var(--cor1), var(--cor5));
+    text-align: center;
+    box-shadow: 0px 0px 10px var(--cor0);
+    justify-content: center;
+    height: 100%;
+}
+
+nav a{
+    font-family: var(--fonte-destaque);
+    background-color: var(--cor5);
+    color: var(--cor5);
+    padding: 15px;
+    padding-top: 30px;
+    margin-top: 10px;
+    margin-left: 40px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px var(--cor0);
+}
+
+nav a:hover{
+    color: var(--cor3);
+    background-color: var(--cor0);
+    transition-duration: .3s;
+}
+
+nav h2{
+    font-size: 2em;
+    font-style: bold;
+    text-shadow: 5px 5px 10px var(--cor5)
+}
+
+
+
+.Texto img{
+    box-shadow: 0px 0px 10px var(--cor0);
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+.titulo{
+    line-height: 0.5px;
+    font-family: var(--fonte-destaque);
+    text-align: center;
+    font-size: 5em;
+    color: var(--cor0);
+    text-shadow: 5px 5px 10px black;
+}

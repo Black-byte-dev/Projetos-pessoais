@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Prog';
+    src: url(Fontes/Efervescencia\ Programada.ttf) format('opentype');
+    font-weight: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --cor0:#3DDB26;
+    --cor1:#4BB13C;
+    --cor2:#4C8644;
+    --cor3:#425C3E;
+    --cor4:#2A3329;
+    --cor5:#2C332B;
+    
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque:'Prog';
+
+}
+
+body{
+    background-image: linear-gradient(to bottom, var(--cor1), var(--cor5));
+}
+
+header{
+    display: flex;
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    line-height: 3em;
+    text-align: center;
+    background-color: var(--cor1);
+}
+
+header img{
+    padding: 10px;
+    width: 150px;
+}
+header h1{
+    margin-left: 60px;
+    margin-top: 60px;
+    text-shadow:0px 0px 5px var(--cor0);
+    color: var(--cor1);
+    font-size: 5em;
+    font-family: var(--fonte-destaque);
+}
+
+header p{
+    font-size: bold;
+    text-shadow: 0px 0px 10px var(--cor0);
+}
+
+nav{
+    box-shadow: 0px 5px 10px var(--cor5);
+    padding: 1%;
+    background-color: var(--cor5);
+}
+
+nav a{
+    box-shadow: 0px 0px 10px var(--cor0);
+    margin-left: 2em;
+    color: var(--cor0);
+    background-color: var(--cor2);
+    padding: .5%;
+    border-radius: 5px;
+}
+
+nav a:hover{
+    color: var(--cor5);
+    background-color: var(--cor0);
+    
+}
+
+main{
+    box-shadow: 0px 5px 10px black;
+    padding: 10px;
+    margin: auto;
+    max-width: 700px;
+    line-height: 3em;
+    background-color: var(--cor3);
+}
+
+footer{
+    text-align: center;
+    background-color: var(--cor4);
+}
