@@ -76,7 +76,7 @@ nav{
 
 nav a{
     box-shadow: 0px 0px 10px var(--cor0);
-    margin-left: 2em;
+    margin-left: 3em;
     color: var(--cor0);
     background-color: var(--cor2);
     padding: .5%;
@@ -104,9 +104,36 @@ main h1{
     font-size: 3.5em;
     color: var(--cor0);
     text-shadow: 3px 3px 3px var(--cor5);
+    padding: 20px;
 }
 
 footer{
     text-align: center;
     background-color: var(--cor4);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card h3 {
+    margin: 10px 0;
+}
+.card p {
+    padding: 0 10px 20px;
+    color: #555;
 }
