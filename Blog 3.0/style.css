@@ -131,9 +131,9 @@ footer{
     height: auto;
 }
 .card h3 {
-    margin: 10px 0;
+    margin: 10px;
 }
 .card p {
-    padding: 0 10px 20px;
-    color: #555;
+    padding: 3px;
+    color: #181818;
 }
