@@ -17,12 +17,12 @@
 }
 
 :root{
-    --cor0:#3DDB26;
-    --cor1:#4BB13C;
-    --cor2:#4C8644;
-    --cor3:#425C3E;
-    --cor4:#2A3329;
-    --cor5:#2C332B;
+    --cor0:#dddddd;
+    --cor1:#bbbbbb;
+    --cor2:#818181;
+    --cor3:#5c5c5c;
+    --cor4:#313131;
+    --cor5:#1d1d1d;
     
     --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
     --fonte-destaque:'Prog';
@@ -33,45 +33,69 @@ body{
     background-image: linear-gradient(to bottom, var(--cor1), var(--cor5));
 }
 
-header{
+header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
-    line-height: 3em;
     text-align: center;
-    background-color: var(--cor1);
+    padding: 20px;
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
 }
 
-
-header img{
+header img {
     border-radius: 100%;
     box-shadow: 0px 0px 10px var(--cor0);
-    margin: 20px;
-    margin-right: 25%;
-    width: 150px;
+    margin: 20px auto;
+    width: 120px;
+    max-width: 100%;
 }
 
-
-
-header h1{
-    margin: auto;
-    text-shadow:0px 0px 5px var(--cor0);
+header h1 {
+    text-shadow: 0px 0px 5px var(--cor0);
     color: var(--cor1);
-    font-size: 5em;
+    font-size: 3em;
     font-family: var(--fonte-destaque);
-    position: relative; 
-    animation: glitch 1s infinite; 
+    position: relative;
+    animation: glitch 1s infinite;
 }
 
-header p{
-    font-size: bold;
+header p {
+    font-family: var(--fonte-morganite);
+    font-size: 30px;
     text-shadow: 0px 0px 10px var(--cor0);
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 10%;
+    }
+
+    header img {
+        width: 150px;
+        margin-right: auto;
+    }
+
+    header h1 {
+        font-size: 5em;
+    }
+
+    header p {
+        font-size: 50px;
+    }
+
+}
+
+.imagens img{
+    width: 100%;
 }
 
 nav{
     box-shadow: 0px 5px 10px var(--cor5);
     padding: 1%;
     background-color: var(--cor5);
+    text-align: center;
 }
 
 nav a{
