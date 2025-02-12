@@ -6,6 +6,54 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: 'M-black';
+    src: url(Fontes/Morganite-Black.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-bold';
+    src: url(Fontes/Morganite-Bold.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-light';
+    src: url(Fontes/Morganite-Light.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-book';
+    src: url(Fontes/Morganite-Book.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-extrabold';
+    src: url(Fontes/Morganite-ExtraBold.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-extralight';
+    src: url(Fontes/Morganite-ExtraLight.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-medium';
+    src: url(Fontes/Morganite-Medium.ttf) format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'M-thin';
+    src: url(Fontes/Morganite-Thin.ttf) format('opentype');
+    font-weight: normal;
+}
+
 @keyframes glitch { 
     0% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; } 
     50% { text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; } 
@@ -26,6 +74,11 @@
     
     --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
     --fonte-destaque:'Prog';
+    --fonte-morganite-black:'M-black';
+    --fonte-morganite-bold:'M-bold';
+    --fonte-morganite-light:'M-light';
+    --fonte-morganite-medium:'M-medium';
+    --fonte-morganite-thin:'M-thin';
 
 }
 
@@ -45,7 +98,6 @@ header {
 header img {
     border-radius: 100%;
     box-shadow: 0px 0px 10px var(--cor0);
-    margin: 20px auto;
     width: 120px;
     max-width: 100%;
 }
@@ -60,7 +112,7 @@ header h1 {
 }
 
 header p {
-    font-family: var(--fonte-morganite);
+    font-family: var(--fonte-morganite-black);
     font-size: 30px;
     text-shadow: 0px 0px 10px var(--cor0);
 }
