@@ -149,6 +149,13 @@ header p {
     width: 100%;
 }
 
+.video video {
+    display: block; /* Transforma o vídeo em um bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 100%;
+    max-width: 800px; /* Define uma largura máxima para o vídeo (opcional) */
+}
+
 nav {
     box-shadow: 0px 5px 10px var(--cor5);
     padding: 10px;
