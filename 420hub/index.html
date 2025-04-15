@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>420Dream - Loja de Cannabis Medicinal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/LOGOTIPO.png" type="image/x-icon">
+</head>
+<body>
+    <header class="dark-header">
+        <div class="container">
+            <div class="logo">
+                <img src="imagens/LOGOTIPO.png" alt="GreenDream Logo" class="logo-img">
+                <h1>420<span>Dream</span></h1>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#products">Produtos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#education">Educação</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-icons">
+                <div class="age-verification">
+                    <i class="fas fa-cannabis"></i>
+                    <span>18+</span>
+                </div>
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="disclaimer-banner">
+        <div class="container">
+            <p><i class="fas fa-exclamation-triangle"></i> Este site é apenas para maiores de 18 anos. O consumo de cannabis pode ter riscos à saúde. Consulte um médico.</p>
+        </div>
+    </div>
+
+    <section class="hero dark-hero">
+        <div class="container">
+            <h2>Cannabis Medicinal de Qualidade</h2>
+            <p>Produtos premium testados em laboratório para seu bem-estar</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Ver Produtos</a>
+                <a href="#education" class="btn btn-outline">Aprenda Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Flores</button>
+                <button class="filter-btn">Óleos</button>
+                <button class="filter-btn">Comestíveis</button>
+                <button class="filter-btn">Acessórios</button>
+            </div>
+            <div class="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Flor OG Kush">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Flores</span>
+                        <h3 class="product-title">Flor OG Kush</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="thc-cbd-info">
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-cannabis"></i> THC</h3>
+                                <p>18%</p>
+                            </div>
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-leaf"></i> CBD</h3>
+                                <p>1%</p>
+                            </div>
+                        </div>
+                        <span class="product-price">R$ 120,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Flor Blue Dream">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Flores</span>
+                        <h3 class="product-title">Flor Blue Dream</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="thc-cbd-info">
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-cannabis"></i> THC</h3>
+                                <p>17%</p>
+                            </div>
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-leaf"></i> CBD</h3>
+                                <p>2%</p>
+                            </div>
+                        </div>
+                        <span class="product-price">R$ 110,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Óleo de CBD">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Óleos</span>
+                        <h3 class="product-title">Óleo de CBD 500mg</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="thc-cbd-info">
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-cannabis"></i> THC</h3>
+                                <p>0.3%</p>
+                            </div>
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-leaf"></i> CBD</h3>
+                                <p>500mg</p>
+                            </div>
+                        </div>
+                        <span class="product-price">R$ 150,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Óleo 1:1 THC:CBD">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Óleos</span>
+                        <h3 class="product-title">Óleo 1:1 THC:CBD</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="thc-cbd-info">
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-cannabis"></i> THC</h3>
+                                <p>10%</p>
+                            </div>
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-leaf"></i> CBD</h3>
+                                <p>10%</p>
+                            </div>
+                        </div>
+                        <span class="product-price">R$ 180,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Chocolate de Cannabis">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Comestíveis</span>
+                        <h3 class="product-title">Chocolate 50mg THC</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="thc-cbd-info">
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-cannabis"></i> THC</h3>
+                                <p>50mg</p>
+                            </div>
+                            <div class="thc-cbd-item">
+                                <h3><i class="fas fa-leaf"></i> CBD</h3>
+                                <p>5mg</p>
+                            </div>
+                        </div>
+                        <span class="product-price">R$ 45,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Vaporizador">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Acessórios</span>
+                        <h3 class="product-title">Vaporizador Portátil</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="product-price">R$ 350,00</span>
+                        <button class="add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education-section dark-about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Educação Cannabis</h2>
+                <p>A cannabis medicinal tem sido usada há milênios para tratar diversas condições de saúde. Na GreenDream, priorizamos a educação responsável sobre os usos e benefícios da planta.</p>
+                <p>Nossos produtos são rigorosamente testados em laboratórios independentes para garantir pureza, potência e segurança. Trabalhamos apenas com cultivadores licenciados e seguimos todas as regulamentações locais.</p>
+                <div class="thc-cbd-info">
+                    <div class="thc-cbd-item">
+                        <h3><i class="fas fa-cannabis"></i> THC</h3>
+                        <p>Tetrahidrocanabinol, o principal composto psicoativo da cannabis.</p>
+                    </div>
+                    <div class="thc-cbd-item">
+                        <h3><i class="fas fa-leaf"></i> CBD</h3>
+                        <p>Canabidiol, composto não-psicoativo com propriedades medicinais.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="imagens/Planta.jpg" alt="Educação sobre Cannabis">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Missão</h2>
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Orgânico</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0%</h3>
+                    <p>Pesticidas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Suporte</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Clientes Satisfeitos</p>
+                </div>
+            </div>
+            <p class="mission-text">Na GreenDream, acreditamos no poder da cannabis para melhorar a qualidade de vida. Nosso compromisso é fornecer produtos da mais alta qualidade, com transparência sobre origem, composição e efeitos. Trabalhamos com médicos e especialistas para garantir que nossos clientes tenham acesso a informações precisas e conselhos responsáveis.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informações</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Cannabis Medicinal, 420 - São Paulo, SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 4200-4242</p>
+                    <p><i class="fas fa-envelope"></i> contato@greendream.com</p>
+                    <p><i class="fas fa-clock"></i> Seg-Sex: 10h-20h | Sáb: 12h-18h</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Assunto</option>
+                            <option>Dúvidas sobre produtos</option>
+                            <option>Suporte técnico</option>
+                            <option>Parcerias</option>
+                            <option>Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Sua Mensagem" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="age-consent" required>
+                        <label for="age-consent">Confirmo que sou maior de 18 anos</label>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="dark-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GreenDream</h3>
+                    <p>Fornecendo cannabis medicinal de qualidade desde 2018.</p>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-bitcoin"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Receba novidades e ofertas especiais.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="age-warning">
+                        <i class="fas fa-exclamation-circle"></i> Apenas para maiores de 18 anos
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 GreenDream. Todos os direitos reservados. Venda apenas para maiores de 18 anos.</p>
+            <p class="legal-disclaimer">Este produto não é destinado para uso por ou venda a pessoas menores de 18 anos. Este produto deve ser usado apenas conforme as instruções no rótulo. Não deve ser usado se você estiver grávida ou amamentando. Consulte um médico antes de usar se você tiver uma condição médica grave ou usar medicamentos prescritos. Procure sempre o aconselhamento de um médico antes de iniciar qualquer tratamento.</p>
+        </div>
+    </footer>
+</body>
+</html>
