@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObsidianTech - Tecnologia que protege, conecta e soluciona</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #0D0D0D;
+            --grafite: #1F1F1F;
+            --cinza-claro: #CCCCCC;
+            --branco: #FFFFFF;
+            --azul-eletrico: #00AEEF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: var(--branco);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .nav-container {
+            background-color: var(--grafite);
+            padding: 1rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--azul-eletrico);
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(45deg, var(--obsidian) 0%, var(--grafite) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--cinza-claro);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--azul-eletrico);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .sobre-nos {
+            padding: 5rem 5%;
+            background-color: var(--grafite);
+        }
+
+        .sobre-nos h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .sobre-nos p {
+            color: var(--cinza-claro);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .destaques {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 5%;
+        }
+
+        .destaque-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--grafite);
+            border-radius: 8px;
+            width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .destaques {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo"><img src="" alt="LogoObsidianTech"></div>
+                <div class="logo">OBSIDIAN TECH</div>
+                <!-- Adicionar menu de navegação aqui -->
+                <div class="links">
+                    <nav>
+                        <a href="#">menu</a>
+                    </nav>
+
+                </div> 
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tecnologia que protege, conecta e soluciona</h1>
+            <p>Soluções sólidas, como obsidiana</p>
+            <a href="#contato" class="btn">Conheça nossas soluções</a>
+        </div>
+    </section>
+
+    <section class="sobre-nos">
+        <h2>Sobre Nós</h2>
+        <p>Na ObsidianTech, somos especialistas em tecnologia com foco em segurança digital, periféricos de alto desempenho e assistência técnica especializada. Atuamos para proteger seus dados, aprimorar sua experiência com tecnologia e oferecer suporte técnico de confiança. Nosso compromisso é fornecer soluções robustas e eficientes, com a mesma precisão e resistência que inspira nosso nome.</p>
+    </section>
+
+    <section class="destaques">
+        <div class="destaque-item">
+            <h3>Segurança Digital</h3>
+            <p>Proteção avançada para seus dados</p>
+        </div>
+        <div class="destaque-item">
+            <h3>Alto Desempenho</h3>
+            <p>Hardware otimizado para performance</p>
+        </div>
+        <div class="destaque-item">
+            <h3>Suporte Técnico</h3>
+            <p>Assistência especializada 24/7</p>
+        </div>
+    </section>
+</body>
+</html>
