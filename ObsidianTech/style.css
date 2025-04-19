@@ -1,0 +1,191 @@
+/* ObsidianTech - CSS Stylesheet Refinado */
+
+:root {
+    --obsidian: #0D0D0D;
+    --grafite: #1F1F1F;
+    --cinza-claro: #CCCCCC;
+    --branco: #FFFFFF;
+    --azul-eletrico: #00AEEF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--obsidian);
+    color: var(--branco);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+.nav-container {
+    background-color: var(--grafite);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    margin: auto;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: var(--azul-eletrico);
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 5%;
+    background: linear-gradient(45deg, var(--obsidian) 0%, var(--grafite) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    color: var(--cinza-claro);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--azul-eletrico);
+    color: var(--branco);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #0085c7;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 174, 239, 0.4);
+}
+
+
+.sobre-nos {
+    padding: 5rem 5%;
+    background-color: var(--grafite);
+}
+
+.sobre-nos h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.sobre-nos p {
+    color: var(--cinza-claro);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.destaques {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 5%;
+    flex-wrap: wrap;
+}
+
+.destaque-item {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--grafite);
+    border-radius: 8px;
+    width: min(100%, 250px);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.links a {
+    color: var(--grafite);
+    text-decoration: none;
+    background-color: var(--cinza-claro);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.links a:hover {
+    background-color: var(--azul-eletrico);
+    color: var(--branco);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 174, 239, 0.4);
+}
+
+
+
+@media (max-width: 768px) {
+    .hero {
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+    
+    .links {
+        gap: 0.5rem;
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .links a {
+        flex: 1 1 45%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .destaque-item {
+        padding: 1.5rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+

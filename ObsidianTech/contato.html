@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato e Registro - ObsidianTech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-contato.css">
+    <link rel="shortcut icon" href="images/Logo-site.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">ObsidianTech</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Fale Conosco</h1>
+            <p>Entre em contato para solicitar um orçamento ou cadastre-se para receber nossas novidades e promoções</p>
+        </div>
+    </section>
+
+    <!-- Formulários -->
+    <section id="contato" class="forms-section">
+        <div class="container">
+            <div class="forms-container">
+                <!-- Formulário de Contato -->
+                <div class="form-wrapper">
+                    <h2 class="form-title">Contato Rápido</h2>
+                    
+                    <div class="info-box">
+                        <h3>Precisa de ajuda?</h3>
+                        <p>Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas.</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div id="contactMessage" class="form-message"></div>
+                        
+                        <div class="form-group">
+                            <label for="contactName">Nome Completo</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">E-mail</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone">Telefone</label>
+                            <input type="tel" id="contactPhone" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Assunto</label>
+                            <select id="contactSubject" class="form-control" required>
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="suporte">Suporte Técnico</option>
+                                <option value="orcamento">Solicitar Orçamento</option>
+                                <option value="parceria">Parcerias</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessageText">Mensagem</label>
+                            <textarea id="contactMessageText" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+
+                <!-- Formulário de Registro -->
+                <div class="form-wrapper">
+                    <h2 class="form-title">Cadastre-se</h2>
+                    
+                    <div class="info-box">
+                        <h3>Vantagens do cadastro</h3>
+                        <p>Clientes cadastrados recebem descontos exclusivos, conteúdo técnico e suporte prioritário.</p>
+                    </div>
+
+                    <form id="registerForm" class="register-form">
+                        <div id="registerMessage" class="form-message"></div>
+                        
+                        <div class="form-group">
+                            <label for="registerName">Nome Completo</label>
+                            <input type="text" id="registerName" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerEmail">E-mail</label>
+                            <input type="email" id="registerEmail" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Senha</label>
+                            <input type="password" id="registerPassword" class="form-control" minlength="6" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirme sua Senha</label>
+                            <input type="password" id="registerConfirmPassword" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerCompany">Empresa (opcional)</label>
+                            <input type="text" id="registerCompany" class="form-control">
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="registerNewsletter" class="form-control" checked>
+                            <label for="registerNewsletter">Desejo receber newsletter e promoções</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="registerTerms" class="form-control" required>
+                            <label for="registerTerms">Li e aceito os <a href="#" class="contact-link">Termos de Uso</a> e <a href="#" class="contact-link">Política de Privacidade</a></label>
+                        </div>
+
+                        <button type="submit" class="btn">Criar Conta</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Informações de Contato -->
+            <div class="contact-info">
+                <h2>Outras Formas de Contato</h2>
+                <p>📞 <strong>Telefone:</strong> (55) 1193074-5778</p>
+                <p>📧 <strong>E-mail:</strong> <a href="felipepessoa404@gmail.com" class="contact-link">felipepessoa404@gmail.com</a></p>
+                <p>🕒 <strong>Horário de Atendimento:</strong> Seg-Sex: 9h-18h</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">ObsidianTech</div>
+            <p>Tecnologia com a Força do Obsidiana! 🔥</p>
+            <p><small>© 2025 ObsidianTech. Todos os direitos reservados.</small></p>
+        </div>
+    </footer>
+
+    <script>
+        // Validação do formulário de contato
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de envio (substituir por AJAX na implementação real)
+            const message = document.getElementById('contactMessage');
+            message.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            message.classList.add('success');
+            
+            // Limpar formulário após 3 segundos
+            setTimeout(() => {
+                this.reset();
+                message.classList.remove('success');
+            }, 5000);
+        });
+
+        // Validação do formulário de registro
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            const message = document.getElementById('registerMessage');
+            
+            // Verificar se as senhas coincidem
+            if (password !== confirmPassword) {
+                message.textContent = 'As senhas não coincidem!';
+                message.classList.add('error');
+                return;
+            }
+            
+            // Verificar termos aceitos
+            if (!document.getElementById('registerTerms').checked) {
+                message.textContent = 'Você deve aceitar os termos para se registrar.';
+                message.classList.add('error');
+                return;
+            }
+            
+            // Simulação de registro bem-sucedido
+            message.textContent = 'Cadastro realizado com sucesso! Bem-vindo à ObsidianTech.';
+            message.classList.add('success');
+            
+            // Limpar formulário após 5 segundos
+            setTimeout(() => {
+                this.reset();
+                message.classList.remove('success');
+            }, 5000);
+        });
+
+        // Máscara para telefone
+        document.getElementById('contactPhone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 2) {
+                value = `(${value.substring(0,2)}) ${value.substring(2)}`;
+            }
+            if (value.length > 10) {
+                value = `${value.substring(0,10)}-${value.substring(10,14)}`;
+            }
+            
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
