@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObsidianTech - IA para Produtividade Radical</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --obsidian: #0a0a12;
+            --neon-cyan: #00f7ff;
+            --tech-purple: #6c63ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--obsidian);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--neon-cyan);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .cta-nav {
+            background: linear-gradient(45deg, var(--tech-purple), var(--neon-cyan));
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 12rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(108,99,255,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0a0c0;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .main-cta {
+            background: linear-gradient(45deg, var(--tech-purple), var(--neon-cyan));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(0,247,255,0.15);
+        }
+
+        .main-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,247,255,0.25);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 16px;
+            background: linear-gradient(45deg, var(--tech-purple), transparent 60%);
+            z-index: -1;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .waitlist-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: rgba(255,255,255,0.03);
+            margin: 4rem 0;
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .waitlist-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+            }
+        }
+
+        .glow {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0,247,255,0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(0,247,255,0.5));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo glow">ObsidianTech</div>
+            <a href="#waitlist" class="cta-nav">Acesso Antecipado</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Produtividade Revolucionária<br><span style="color: var(--neon-cyan);">Powered by AI</span></h1>
+        <p>Domine estudos, projetos e metas com algoritmos de inteligência artificial de última geração</p>
+        <a href="#waitlist" class="main-cta">
+            <i class="fas fa-rocket"></i>
+            Começar Agora
+        </a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="feature-icon fas fa-bolt"></i>
+            <h3>Automação Radical</h3>
+            <p>Fluxos de trabalho inteligentes que se adaptam ao seu estilo</p>
+        </div>
+        <div class="feature-card">
+            <i class="feature-icon fas fa-brain"></i>
+            <h3>Neuro-Otimização</h3>
+            <p>Algoritmos que analisam seus padrões cognitivos</p>
+        </div>
+        <div class="feature-card">
+            <i class="feature-icon fas fa-infinity"></i>
+            <h3>Integração Quântica</h3>
+            <p>Conecte todas suas ferramentas em um único ecossistema</p>
+        </div>
+    </section>
+
+    <section id="waitlist" class="waitlist-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Lista de Acesso Prioritário</h2>
+        <p style="color: #a0a0c0;">Garanta seu acesso antecipado à próxima revolução em produtividade</p>
+        <form class="waitlist-form">
+            <input type="email" class="waitlist-input" placeholder="Seu melhor email" required>
+            <button type="submit" class="main-cta" style="padding: 1rem 2rem;">
+                Garantir Vaga
+            </button>
+        </form>
+    </section>
+
+    <script>
+        // Animação de formulário
+        document.querySelector('.waitlist-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.querySelector('.waitlist-input').value;
+            
+            // Animação simples
+            document.querySelector('.waitlist-form').style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                document.querySelector('.waitlist-form').style.transform = 'scale(1)';
+                alert('Você está na lista! Verifique seu email para confirmação.');
+            }, 200);
+        });
+
+        // Efeito parallax
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero').style.backgroundPositionY = `${scrolled * 0.5}px`;
+        });
+
+        // Observador de elementos
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
