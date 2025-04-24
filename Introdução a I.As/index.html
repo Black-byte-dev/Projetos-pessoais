@@ -199,6 +199,120 @@
             animation: glow 2s infinite alternate;
         }
 
+        /* Estilos anteriores mantidos */
+
+        .carrossel {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 3rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(108,99,255,0.3);
+            margin: 1rem;
+            box-shadow: 0 8px 32px rgba(0,247,255,0.1);
+            position: relative;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 16px;
+            background: linear-gradient(45deg, var(--tech-purple), transparent 60%);
+            z-index: -1;
+        }
+
+        .slide-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #e0e0ff;
+        }
+
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--neon-cyan);
+            transform: scale(1.2);
+        }
+
+         /* Adicione estas regras CSS */
+         html {
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .carrossel {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            padding: 3rem;
+            box-sizing: border-box;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(108,99,255,0.3);
+            margin: 1rem 0;
+            box-shadow: 0 8px 32px rgba(0,247,255,0.1);
+            position: relative;
+        }
+
+        /* Mantenha o restante do CSS original */
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem;
+                margin: 0.5rem;
+            }
+            
+            .slide-text {
+                font-size: 1.1rem;
+            }
+        }
+
         @keyframes glow {
             from {
                 filter: drop-shadow(0 0 10px rgba(0,247,255,0.3));
@@ -243,6 +357,33 @@
             <p>Conecte todas suas ferramentas em um único ecossistema</p>
         </div>
     </section>
+
+      <!-- Header e Hero section mantidos iguais -->
+
+      <section class="carrossel">
+        <div class="slides-container">
+            <div class="slide">
+                <p class="slide-text">🎯 A verdade é que...<br><br>Quem domina os prompts certos<br>ganha tempo, dinheiro e vantagem.</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🚀 Você está usando IA...<br>Mas não sabe como tirar<br>tudo que ela pode te dar?</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">💡 A maioria trava porque<br>não sabe o que pedir.<br>Você não precisa ser programador.<br>Só precisa saber como conversar com IA.</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">📘 Foi por isso que criei esse eBook:<br>Um guia prático pra você dominar<br>prompts poderosos, direto ao ponto.</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">💎 Aprenda a criar conteúdos,<br>facilitar tarefas, vender mais e<br>produzir como nunca.</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🔥 Se você quer transformar ideias em resultados...<br>Comece hoje a dominar a IA como um profissional.</p>
+            </div>
+        </div>
+        <div class="dots-container"></div>
+    </section>
+
 
     <section id="waitlist" class="waitlist-section">
         <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Lista de Acesso Prioritário</h2>
@@ -292,5 +433,39 @@
             observer.observe(el);
         });
     </script>
+
+<script>
+    // Script modificado para rolagem suave
+    const slidesContainer = document.querySelector('.slides-container');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    let autoScroll = true;
+
+    // Função de rolagem automática suave
+    function autoScrollCarousel() {
+        if (autoScroll) {
+            currentSlide = (currentSlide + 1) % slides.length;
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+    }
+
+    // Inicia o carrossel automático
+    let scrollInterval = setInterval(autoScrollCarousel, 5000);
+
+    // Pausa ao interagir
+    slidesContainer.addEventListener('mouseenter', () => autoScroll = false);
+    slidesContainer.addEventListener('mouseleave', () => autoScroll = true);
+
+    // Atualiza dots
+    function updateDots() {
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    // Mantenha o restante do script original
+</script>
+
 </body>
 </html>
