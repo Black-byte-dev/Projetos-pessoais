@@ -53,26 +53,13 @@ header {
 }
 
 .logo {
+    margin: auto;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: var(--azul-eletrico);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--azul-eletrico);
     text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links a {
-    color: var(--cinza-claro);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: var(--azul-eletrico);
 }
 
 /* Hero Section */
