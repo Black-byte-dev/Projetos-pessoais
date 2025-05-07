@@ -278,7 +278,6 @@ nav ul li a:hover {
 }
 
 .testimonial:before {
-    content: '"';
     font-size: 100px;
     color: #1F1F1F;
     position: absolute;
@@ -334,6 +333,22 @@ nav ul li a:hover {
 
 .content-text p {
     color: #CCCCCC;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #00AEEF;
+    color: #0D0D0D;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #0095D9;
 }
 
 

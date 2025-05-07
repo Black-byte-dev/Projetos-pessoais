@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domine a IA e Transforme Sua Vida - Guia Definitivo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="imagens/Logo P-transparente.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -33,7 +33,6 @@
         <div class="container">
             <h2>DESBLOQUEIE O PODER DA IA EM 24 HORAS - Mesmo Se Você É Um Iniciante Completo!</h2>
             <p>O guia passo-a-passo que grandes empresas de tecnologia NÃO querem que você conheça para multiplicar sua produtividade, automatizar sua rotina e conquistar vantagem competitiva</p>
-            
             <a href="#offer" class="btn-hero">QUERO MEU GUIA AGORA - 97% OFF POR TEMPO LIMITADO</a>
             
             <div class="urgency-container">
@@ -161,7 +160,9 @@
                 </div>
             </div>
             
-            
+            <div style="text-align: center;">
+                <a href="#" class="btn-secondary" id="sample-btn">BAIXE UMA AMOSTRA GRÁTIS</a>
+            </div>
         </div>
     </section>
 
@@ -261,12 +262,26 @@
             </div>
             
             <div class="copyright">
-                <p>© 2024 BlackHub. Todos os direitos reservados.</p>
+                <p>© 2025 BlackHub. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-
+    <!-- Modal -->
+    <div class="modal" id="sampleModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Baixe uma Amostra Grátis do Nosso Guia!</h3>
+            <p>Digite seu e-mail abaixo para receber imediatamente um trecho do guia com as primeiras técnicas que vão revolucionar sua produtividade.</p>
+            
+            <form class="modal-form">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">ENVIAR AMOSTRA GRÁTIS</button>
+            </form>
+            
+            <p style="font-size: 12px; margin-top: 20px; color: #CCCCCC;">Ao inserir seu e-mail, você concorda em receber conteúdos da BlackHub. Respeitamos sua privacidade.</p>
+        </div>
+    </div>
 
     <script>
         // Countdown Timer
@@ -310,8 +325,42 @@
                 }
             }, 20);
         }
-
         
+        // Modal Handling
+        function setupModal() {
+            const modal = document.getElementById('sampleModal');
+            const btn = document.getElementById('sample-btn');
+            const span = document.getElementsByClassName('close-modal')[0];
+            
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+        
+        // Popup after 30 seconds
+        function showDelayedPopup() {
+            setTimeout(() => {
+                const modal = document.getElementById('sampleModal');
+                modal.style.display = 'flex';
+                
+                
+                // Reattach close event
+                modal.querySelector('.close-modal').onclick = function() {
+                    modal.style.display = 'none';
+                }
+            }, 30000);
+        }
         
         // Initialize all functions when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
