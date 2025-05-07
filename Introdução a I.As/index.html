@@ -1,471 +1,399 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ObsidianTech - IA para Produtividade Radical</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --obsidian: #0a0a12;
-            --neon-cyan: #00f7ff;
-            --tech-purple: #6c63ff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background: var(--obsidian);
-            color: white;
-            line-height: 1.6;
-        }
-
-        .header {
-            background: rgba(10, 10, 18, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: var(--neon-cyan);
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .cta-nav {
-            background: linear-gradient(45deg, var(--tech-purple), var(--neon-cyan));
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.3s;
-        }
-
-        .cta-nav:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            padding: 12rem 2rem 6rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(108,99,255,0.15) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #a0a0c0;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .main-cta {
-            background: linear-gradient(45deg, var(--tech-purple), var(--neon-cyan));
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s;
-            box-shadow: 0 8px 32px rgba(0,247,255,0.15);
-        }
-
-        .main-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0,247,255,0.25);
-        }
-
-        .features {
-            max-width: 1200px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .feature-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-5px);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            border-radius: 16px;
-            background: linear-gradient(45deg, var(--tech-purple), transparent 60%);
-            z-index: -1;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--neon-cyan);
-            margin-bottom: 1.5rem;
-        }
-
-        .waitlist-section {
-            text-align: center;
-            padding: 6rem 2rem;
-            background: rgba(255,255,255,0.03);
-            margin: 4rem 0;
-        }
-
-        .waitlist-form {
-            max-width: 500px;
-            margin: 2rem auto;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .waitlist-input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            background: transparent;
-            color: white;
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .waitlist-form {
-                flex-direction: column;
-            }
-        }
-
-        .glow {
-            animation: glow 2s infinite alternate;
-        }
-
-        /* Estilos anteriores mantidos */
-
-        .carrossel {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slides-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            padding: 3rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(108,99,255,0.3);
-            margin: 1rem;
-            box-shadow: 0 8px 32px rgba(0,247,255,0.1);
-            position: relative;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            border-radius: 16px;
-            background: linear-gradient(45deg, var(--tech-purple), transparent 60%);
-            z-index: -1;
-        }
-
-        .slide-text {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            text-align: center;
-            color: #e0e0ff;
-        }
-
-        .dots-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--neon-cyan);
-            transform: scale(1.2);
-        }
-
-         /* Adicione estas regras CSS */
-         html {
-            overflow-x: hidden;
-        }
-
-        body {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        .carrossel {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slides-container {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slide {
-            flex: 0 0 100%;
-            padding: 3rem;
-            box-sizing: border-box;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(108,99,255,0.3);
-            margin: 1rem 0;
-            box-shadow: 0 8px 32px rgba(0,247,255,0.1);
-            position: relative;
-        }
-
-        /* Mantenha o restante do CSS original */
-
-        @media (max-width: 768px) {
-            .slide {
-                padding: 2rem;
-                margin: 0.5rem;
-            }
-            
-            .slide-text {
-                font-size: 1.1rem;
-            }
-        }
-
-        @keyframes glow {
-            from {
-                filter: drop-shadow(0 0 10px rgba(0,247,255,0.3));
-            }
-            to {
-                filter: drop-shadow(0 0 20px rgba(0,247,255,0.5));
-            }
-        }
-    </style>
+    <title>Domine a IA e Transforme Sua Vida - Guia Definitivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/Logo P-transparente.png" type="image/x-icon">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="logo glow">ObsidianTech</div>
-            <a href="#waitlist" class="cta-nav">Acesso Antecipado</a>
-        </nav>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img style="width: 50px;" src="imagens/Logo P-transparente.png" alt="">
+                <h1>BlackHub</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#guide">O Guia</a></li>
+                    <li><a href="#benefits">Benefícios</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#guarantee">Garantia</a></li>
+                    <li><a href="#offer" class="btn-nav">Comprar Agora</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Produtividade Revolucionária<br><span style="color: var(--neon-cyan);">Powered by AI</span></h1>
-        <p>Domine estudos, projetos e metas com algoritmos de inteligência artificial de última geração</p>
-        <a href="#waitlist" class="main-cta">
-            <i class="fas fa-rocket"></i>
-            Começar Agora
-        </a>
-    </section>
-
-    <section class="features">
-        <div class="feature-card">
-            <i class="feature-icon fas fa-bolt"></i>
-            <h3>Automação Radical</h3>
-            <p>Fluxos de trabalho inteligentes que se adaptam ao seu estilo</p>
-        </div>
-        <div class="feature-card">
-            <i class="feature-icon fas fa-brain"></i>
-            <h3>Neuro-Otimização</h3>
-            <p>Algoritmos que analisam seus padrões cognitivos</p>
-        </div>
-        <div class="feature-card">
-            <i class="feature-icon fas fa-infinity"></i>
-            <h3>Integração Quântica</h3>
-            <p>Conecte todas suas ferramentas em um único ecossistema</p>
+        <div class="container">
+            <h2>DESBLOQUEIE O PODER DA IA EM 24 HORAS - Mesmo Se Você É Um Iniciante Completo!</h2>
+            <p>O guia passo-a-passo que grandes empresas de tecnologia NÃO querem que você conheça para multiplicar sua produtividade, automatizar sua rotina e conquistar vantagem competitiva</p>
+            <a href="#offer" class="btn-hero">QUERO MEU GUIA AGORA - 97% OFF POR TEMPO LIMITADO</a>
+            
+            <div class="urgency-container">
+                <div class="urgency-box">
+                    <h3>Oferta expira em:</h3>
+                    <p id="countdown">29:59</p>
+                </div>
+                <div class="urgency-box">
+                    <h3>Pessoas comprando agora:</h3>
+                    <p id="sales-counter">8,742</p>
+                </div>
+            </div>
+            
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down" style="font-size: 24px; color: #00AEEF;"></i>
+            </div>
         </div>
     </section>
 
-      <!-- Header e Hero section mantidos iguais -->
-
-      <section class="carrossel">
-        <div class="slides-container">
-            <div class="slide">
-                <p class="slide-text">🎯 A verdade é que...<br><br>Quem domina os prompts certos<br>ganha tempo, dinheiro e vantagem.</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🚀 Você está usando IA...<br>Mas não sabe como tirar<br>tudo que ela pode te dar?</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">💡 A maioria trava porque<br>não sabe o que pedir.<br>Você não precisa ser programador.<br>Só precisa saber como conversar com IA.</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">📘 Foi por isso que criei esse eBook:<br>Um guia prático pra você dominar<br>prompts poderosos, direto ao ponto.</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">💎 Aprenda a criar conteúdos,<br>facilitar tarefas, vender mais e<br>produzir como nunca.</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🔥 Se você quer transformar ideias em resultados...<br>Comece hoje a dominar a IA como um profissional.</p>
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution" id="guide">
+        <div class="container">
+            <h2 class="section-title">Pare de Perder Tempo e Comece a Dominar a IA Hoje</h2>
+            
+            <div class="ps-container">
+                <div class="problem">
+                    <h3>Você está enfrentando esses problemas?</h3>
+                    <ul>
+                        <li>Perdendo 3-5 horas por dia em tarefas repetitivas</li>
+                        <li>Seus concorrentes já estão usando IA para ter vantagem</li>
+                        <li>Cursos de IA custam milhares e são complexos demais</li>
+                        <li>Não sabe por onde começar no mundo da Inteligência Artificial</li>
+                        <li>Sentindo que está ficando para trás tecnologicamente</li>
+                    </ul>
+                </div>
+                
+                <div class="solution">
+                    <h3>Nossa solução para você:</h3>
+                    <ul>
+                        <li>Guia em linguagem simples, direto ao ponto</li>
+                        <li>Métodos testados por 1.237 alunos BlackHub</li>
+                        <li>Atualizações gratuitas para sempre</li>
+                        <li>Acesso imediato ao grupo exclusivo</li>
+                        <li>Resultados em 24 horas ou menos</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="dots-container"></div>
     </section>
 
-
-    <section id="waitlist" class="waitlist-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Lista de Acesso Prioritário</h2>
-        <p style="color: #a0a0c0;">Garanta seu acesso antecipado à próxima revolução em produtividade</p>
-        <form class="waitlist-form">
-            <input type="email" class="waitlist-input" placeholder="Seu melhor email" required>
-            <button type="submit" class="main-cta" style="padding: 1rem 2rem;">
-                Garantir Vaga
-            </button>
-        </form>
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai Dominar Com Este Guia:</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Automatize 80% do Seu Trabalho</h3>
+                    <p>Templates prontos para ChatGPT, Midjourney e outras IAs que vão poupar horas do seu dia.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Ganhe 2 Horas Por Dia</h3>
+                    <p>Fluxos de trabalho otimizados com IA que ninguém te ensinou até agora.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Seja Pago Por Habilidade</h3>
+                    <p>Como oferecer serviços de IA (R$200-500/hora) mesmo sendo iniciante.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Acesso VIP ao BlackHub</h3>
+                    <p>Comunidade onde compartilho segredos de cibersegurança e tech em primeira mão.</p>
+                </div>
+            </div>
+            
+            <div class="testimonial" id="testimonials">
+                <p>Consegui triplicar minha produtividade e agora ganho R$15k/mês freelando com IA. O guia da BlackHub me mostrou exatamente o caminho que eu precisava seguir, com exemplos práticos que pude aplicar imediatamente no meu trabalho.</p>
+                <p class="testimonial-author">Júlio, 32 anos, Designer</p>
+            </div>
+        </div>
     </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="container">
+            <h2 class="section-title">O Que Exatamente Você Recebe:</h2>
+            
+            <div class="content-grid">
+                <div class="content-item">
+                    <i class="fas fa-book"></i>
+                    <div class="content-text">
+                        <h3>PDF de 127 páginas</h3>
+                        <p>Design premium com linguagem clara e direta ao ponto, perfeito para iniciantes.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <i class="fas fa-video"></i>
+                    <div class="content-text">
+                        <h3>5 Bônus Exclusivos</h3>
+                        <p>Vídeo-aulas complementares + templates prontos para uso imediato.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <i class="fas fa-lock"></i>
+                    <div class="content-text">
+                        <h3>Acesso ao BlackHub</h3>
+                        <p>Comunidade exclusiva (valor mensal R$97 → GRÁTIS para compradores).</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <div class="content-text">
+                        <h3>Atualizações Vitalícias</h3>
+                        <p>Novos conteúdos e técnicas sempre que a tecnologia evolui.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="btn-secondary" id="sample-btn">BAIXE UMA AMOSTRA GRÁTIS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority">
+        <div class="container">
+            <h2 class="section-title">Quem vai te ensinar?</h2>
+            
+            <div class="author-card">
+                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Fundador BlackHub" class="author-img">
+                <h3>Fundador da BlackHub</h3>
+                <p>Especialista em IA e cibersegurança com 12 anos de experiência. Já treinei equipes na Nubank, Google e Itaú. Agora quero democratizar esse conhecimento PARA VOCÊ, sem jargões técnicos ou informações desnecessárias - apenas o que funciona na prática.</p>
+                <span class="author-badge">Aprovado por +1.200 membros da comunidade tech</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <h2 class="section-title">OFERTA RELÂMPAGO<br>(Termina Quando o Cronômetro Zerar)</h2>
+            
+            <div class="offer-box">
+                <div class="pricing">
+                    <div class="original-price">~~R$297~~</div>
+                    <div class="current-price">R$47</div>
+                    <div class="installments">ou 7x R$9,30</div>
+                </div>
+                
+                <div class="bonuses">
+                    <h3>Bônus Imediatos:</h3>
+                    
+                    <div class="bonus-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Checklist "IA Para Iniciantes"</strong> (valor R$97)
+                        </div>
+                    </div>
+                    
+                    <div class="bonus-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Curso "Prompt Engineering Básico"</strong> (valor R$197)
+                        </div>
+                    </div>
+                    
+                    <div class="bonus-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>30 Dias no BlackHub</strong> (valor R$97)
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn-hero">QUERO TRANSFORMAR MINHA VIDA COM IA - ACESSO IMEDIATO</a>
+            </div>
+            
+            <div class="guarantee" id="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <p>Teste por 7 Dias - Se não amar, devolvo seu dinheiro SEM PERGUNTAS. Você não tem nada a perder e tudo a ganhar ao dominar essas técnicas antes que se tornem conhecimento comum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BlackHub</h2>
+                    <p>Educação tecnológica descomplicada para acelerar sua carreira e negócios.</p>
+                    
+                    <div class="payment-methods">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="American Express">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196563.png" alt="PayPal">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196560.png" alt="Pix">
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="security-badges">
+                <img src="https://cdn-icons-png.flaticon.com/512/2451/2451986.png" alt="SSL Secure" style="height: 40px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913100.png" alt="GDPR Compliant" style="height: 40px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1063/1063512.png" alt="100% Seguro" style="height: 40px;">
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 BlackHub. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="sampleModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Baixe uma Amostra Grátis do Nosso Guia!</h3>
+            <p>Digite seu e-mail abaixo para receber imediatamente um trecho do guia com as primeiras técnicas que vão revolucionar sua produtividade.</p>
+            
+            <form class="modal-form">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">ENVIAR AMOSTRA GRÁTIS</button>
+            </form>
+            
+            <p style="font-size: 12px; margin-top: 20px; color: #CCCCCC;">Ao inserir seu e-mail, você concorda em receber conteúdos da BlackHub. Respeitamos sua privacidade.</p>
+        </div>
+    </div>
 
     <script>
-        // Animação de formulário
-        document.querySelector('.waitlist-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.querySelector('.waitlist-input').value;
+        // Countdown Timer
+        function startCountdown() {
+            let minutes = 29;
+            let seconds = 59;
             
-            // Animação simples
-            document.querySelector('.waitlist-form').style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                document.querySelector('.waitlist-form').style.transform = 'scale(1)';
-                alert('Você está na lista! Verifique seu email para confirmação.');
-            }, 200);
-        });
-
-        // Efeito parallax
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.querySelector('.hero').style.backgroundPositionY = `${scrolled * 0.5}px`;
-        });
-
-        // Observador de elementos
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+            const countdownElement = document.getElementById('countdown');
+            
+            const timer = setInterval(() => {
+                countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timer);
+                        countdownElement.textContent = 'OFERTA EXPIRADA!';
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
                 }
+            }, 1000);
+        }
+        
+        // Sales Counter Animation
+        function animateSalesCounter() {
+            const target = 8742;
+            const element = document.getElementById('sales-counter');
+            let current = 8000;
+            const increment = Math.ceil((target - current) / 100);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current.toLocaleString('pt-BR');
+                
+                if (current >= target) {
+                    clearInterval(timer);
+                    element.textContent = target.toLocaleString('pt-BR');
+                }
+            }, 20);
+        }
+        
+        // Modal Handling
+        function setupModal() {
+            const modal = document.getElementById('sampleModal');
+            const btn = document.getElementById('sample-btn');
+            const span = document.getElementsByClassName('close-modal')[0];
+            
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+        
+        // Popup after 30 seconds
+        function showDelayedPopup() {
+            setTimeout(() => {
+                const modal = document.getElementById('sampleModal');
+                modal.style.display = 'flex';
+                
+                // Change modal content for the popup
+                const modalContent = modal.querySelector('.modal-content');
+                modalContent.innerHTML = `
+                    <span class="close-modal">&times;</span>
+                    <h3>OFERTA ESPECIAL!</h3>
+                    <p style="color: #CCCCCC;">Por estar aqui agora, ganhe 10% DE DESCONTO adicional no guia completo! Use o cupom: <strong style="color: #00AEEF;">BLACKHUB10</strong></p>
+                    <a href="#offer" class="btn-hero" style="margin-top: 20px; display: inline-block;">QUERO MEU DESCONTO</a>
+                `;
+                
+                // Reattach close event
+                modal.querySelector('.close-modal').onclick = function() {
+                    modal.style.display = 'none';
+                }
+            }, 30000);
+        }
+        
+        // Initialize all functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+            animateSalesCounter();
+            setupModal();
+            showDelayedPopup();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-card').forEach((el) => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-            observer.observe(el);
         });
     </script>
-
-<script>
-    // Script modificado para rolagem suave
-    const slidesContainer = document.querySelector('.slides-container');
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-    let autoScroll = true;
-
-    // Função de rolagem automática suave
-    function autoScrollCarousel() {
-        if (autoScroll) {
-            currentSlide = (currentSlide + 1) % slides.length;
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            updateDots();
-        }
-    }
-
-    // Inicia o carrossel automático
-    let scrollInterval = setInterval(autoScrollCarousel, 5000);
-
-    // Pausa ao interagir
-    slidesContainer.addEventListener('mouseenter', () => autoScroll = false);
-    slidesContainer.addEventListener('mouseleave', () => autoScroll = true);
-
-    // Atualiza dots
-    function updateDots() {
-        document.querySelectorAll('.dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentSlide);
-        });
-    }
-
-    // Mantenha o restante do script original
-</script>
-
 </body>
 </html>
