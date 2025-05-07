@@ -13,7 +13,7 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img style="width: 50px;" src="imagens/Logo P-transparente.png" alt="">
+                <img style="width: 50px;" src="imagens/Logo P-transparente.png" alt="Logo">
                 <h1>BlackHub</h1>
             </div>
             <nav>
@@ -33,6 +33,7 @@
         <div class="container">
             <h2>DESBLOQUEIE O PODER DA IA EM 24 HORAS - Mesmo Se Você É Um Iniciante Completo!</h2>
             <p>O guia passo-a-passo que grandes empresas de tecnologia NÃO querem que você conheça para multiplicar sua produtividade, automatizar sua rotina e conquistar vantagem competitiva</p>
+            
             <a href="#offer" class="btn-hero">QUERO MEU GUIA AGORA - 97% OFF POR TEMPO LIMITADO</a>
             
             <div class="urgency-container">
@@ -160,9 +161,7 @@
                 </div>
             </div>
             
-            <div style="text-align: center;">
-                <a href="#" class="btn-secondary" id="sample-btn">BAIXE UMA AMOSTRA GRÁTIS</a>
-            </div>
+            
         </div>
     </section>
 
@@ -172,7 +171,7 @@
             <h2 class="section-title">Quem vai te ensinar?</h2>
             
             <div class="author-card">
-                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Fundador BlackHub" class="author-img">
+                <img src="imagens/Profilepng-square.png" alt="Fundador BlackHub" class="author-img">
                 <h3>Fundador da BlackHub</h3>
                 <p>Especialista em IA e cibersegurança com 12 anos de experiência. Já treinei equipes na Nubank, Google e Itaú. Agora quero democratizar esse conhecimento PARA VOCÊ, sem jargões técnicos ou informações desnecessárias - apenas o que funciona na prática.</p>
                 <span class="author-badge">Aprovado por +1.200 membros da comunidade tech</span>
@@ -267,21 +266,7 @@
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="sampleModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3>Baixe uma Amostra Grátis do Nosso Guia!</h3>
-            <p>Digite seu e-mail abaixo para receber imediatamente um trecho do guia com as primeiras técnicas que vão revolucionar sua produtividade.</p>
-            
-            <form class="modal-form">
-                <input type="email" placeholder="Seu melhor e-mail" required>
-                <button type="submit">ENVIAR AMOSTRA GRÁTIS</button>
-            </form>
-            
-            <p style="font-size: 12px; margin-top: 20px; color: #CCCCCC;">Ao inserir seu e-mail, você concorda em receber conteúdos da BlackHub. Respeitamos sua privacidade.</p>
-        </div>
-    </div>
+
 
     <script>
         // Countdown Timer
@@ -325,50 +310,8 @@
                 }
             }, 20);
         }
+
         
-        // Modal Handling
-        function setupModal() {
-            const modal = document.getElementById('sampleModal');
-            const btn = document.getElementById('sample-btn');
-            const span = document.getElementsByClassName('close-modal')[0];
-            
-            btn.onclick = function(e) {
-                e.preventDefault();
-                modal.style.display = 'flex';
-            }
-            
-            span.onclick = function() {
-                modal.style.display = 'none';
-            }
-            
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
-        }
-        
-        // Popup after 30 seconds
-        function showDelayedPopup() {
-            setTimeout(() => {
-                const modal = document.getElementById('sampleModal');
-                modal.style.display = 'flex';
-                
-                // Change modal content for the popup
-                const modalContent = modal.querySelector('.modal-content');
-                modalContent.innerHTML = `
-                    <span class="close-modal">&times;</span>
-                    <h3>OFERTA ESPECIAL!</h3>
-                    <p style="color: #CCCCCC;">Por estar aqui agora, ganhe 10% DE DESCONTO adicional no guia completo! Use o cupom: <strong style="color: #00AEEF;">BLACKHUB10</strong></p>
-                    <a href="#offer" class="btn-hero" style="margin-top: 20px; display: inline-block;">QUERO MEU DESCONTO</a>
-                `;
-                
-                // Reattach close event
-                modal.querySelector('.close-modal').onclick = function() {
-                    modal.style.display = 'none';
-                }
-            }, 30000);
-        }
         
         // Initialize all functions when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
