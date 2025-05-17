@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKHUB - Hackeie sua mente e seus resultados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/Logo P-transparente.png" type="image/x-icon">
+    <style>
+        :root {
+            --deep-black: #0D0D0D;
+            --graphite: #1F1F1F;
+            --light-gray: #CCCCCC;
+            --white: #FFFFFF;
+            --electric-blue: #00AEEF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--graphite);
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--deep-black) 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--electric-blue), var(--white));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientPulse 8s ease infinite;
+        }
+        
+        @keyframes gradientPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--light-gray);
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--electric-blue);
+            color: var(--deep-black);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 174, 239, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 174, 239, 0.6);
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .cta-button:hover::after {
+            transform: translateX(100%);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--graphite);
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--electric-blue);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit-card {
+            background-color: var(--deep-black);
+            padding: 40px 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--electric-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .benefit-card p {
+            color: var(--light-gray);
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .social-proof h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--electric-blue);
+        }
+        
+        .testimonials {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: var(--graphite);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--electric-blue);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--electric-blue);
+        }
+        
+        .author-info h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--electric-blue);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* PDF Preview */
+        .pdf-preview {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--deep-black);
+        }
+        
+        .pdf-preview h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--electric-blue);
+        }
+        
+        .preview-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 5px solid var(--electric-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 174, 239, 0.3);
+            margin-bottom: 40px;
+        }
+        
+        .preview-container img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Content List */
+        .content-list {
+            padding: 80px 0;
+            background-color: var(--graphite);
+        }
+        
+        .content-list h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--electric-blue);
+        }
+        
+        .content-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .item-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--electric-blue);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+        
+        .item-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .item-content p {
+            color: var(--light-gray);
+        }
+        
+        /* Scarcity Section */
+        .scarcity {
+            padding: 80px 0;
+            background-color: var(--deep-black);
+            text-align: center;
+            border-top: 1px solid var(--graphite);
+            border-bottom: 1px solid var(--graphite);
+        }
+        
+        .scarcity h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--electric-blue);
+        }
+        
+        .scarcity p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-gray);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .countdown-item {
+            background-color: var(--graphite);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--electric-blue);
+            margin-bottom: 30px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--graphite);
+        }
+        
+        .guarantee h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--electric-blue);
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background-color: var(--electric-blue);
+            color: var(--deep-black);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .guarantee p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--light-gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .final-cta h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--electric-blue);
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--light-gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--graphite);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            color: var(--light-gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--electric-blue);
+        }
+        
+        .copyright {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .content-item {
+                flex-direction: column;
+            }
+            
+            .item-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">BLACKHUB</div>
+            <p class="tagline">Hackeie sua mente e seus resultados</p>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>DOMINE O INSTAGRAM E CRESÇA SEU NEGÓCIO</h1>
+            <p>O guia definitivo que vai te ensinar desde a escolha do nicho até as estratégias avançadas para viralizar no Instagram</p>
+            <a href="#oferta" class="cta-button">QUERO MEU BLACKDIGITAL AGORA</a>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>O QUE VOCÊ VAI APRENDER</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>ESCOLHA DO NICHO</h3>
+                    <p>Descubra como selecionar o nicho perfeito que combine com seus conhecimentos e tenha potencial de lucro.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>PERFIL VENCEDOR</h3>
+                    <p>Aprenda a estruturar seu perfil do Instagram para converter visitantes em seguidores e clientes.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>GATILHOS VIRAIS</h3>
+                    <p>Domine as técnicas de criação de ganchos que vão fazer seu conteúdo ser assistido até o final.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>ALGORITMO DECIFRADO</h3>
+                    <p>Entenda como o algoritmo do Instagram funciona e como fazer ele trabalhar a seu favor.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>CONTEÚDO INFINITO</h3>
+                    <p>Método comprovado para nunca mais ficar sem ideias de conteúdo para postar.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>FERRAMENTAS ESSENCIAIS</h3>
+                    <p>Lista das melhores ferramentas gratuitas e pagas para turbinar sua produtividade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>QUEM JÁ TRANSFORMOU SEUS RESULTADOS</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>Depois de aplicar o método do BLACKDIGITAL, meu perfil cresceu de 200 para 15k seguidores em 3 meses e hoje faturo mais de R$5.000/mês com meus produtos digitais.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana Silva" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>Empreendedora Digital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>Eu já tinha tentado de tudo no Instagram sem sucesso. O BLACKDIGITAL me mostrou exatamente onde eu estava errando e hoje tenho um reel com mais de 2 milhões de views.</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Mendes" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Consultor de Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PDF Preview -->
+    <section class="pdf-preview">
+        <div class="container">
+            <h2>CONHEÇA O BLACKDIGITAL</h2>
+            <div class="preview-container">
+                <img src="images/IMG_0307.PNG" alt="Preview do BLACK">
+            </div>
+            <p>22 páginas de conteúdo prático e direto ao ponto</p>
+        </div>
+    </section>
+    
+    <!-- Content List -->
+    <section class="content-list">
+        <div class="container">
+            <h2>O QUE VOCÊ ENCONTRA NO BLACKDIGITAL</h2>
+            <div class="content-items">
+                <div class="content-item">
+                    <div class="item-number">1</div>
+                    <div class="item-content">
+                        <h3>Encontrando seu Nicho</h3>
+                        <p>Como escolher o nicho perfeito que combine com você e tenha potencial de lucro.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">2</div>
+                    <div class="item-content">
+                        <h3>Página Temática ou Marca Pessoal?</h3>
+                        <p>Prós e contras de cada abordagem para você decidir o melhor caminho.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">3</div>
+                    <div class="item-content">
+                        <h3>Estruturando seu Perfil</h3>
+                        <p>Passo a passo para criar um perfil que converte visitantes em seguidores.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">4</div>
+                    <div class="item-content">
+                        <h3>Aquecendo sua Conta</h3>
+                        <p>O processo essencial que 90% das pessoas pulam e depois reclamam que não tem alcance.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">5</div>
+                    <div class="item-content">
+                        <h3>Sua Identidade Visual</h3>
+                        <p>Como criar uma marca reconhecível que se destaque no feed do Instagram.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">6</div>
+                    <div class="item-content">
+                        <h3>Ganchos Virais</h3>
+                        <p>As técnicas mais eficazes para criar ganchos que prendem a atenção do público.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">7</div>
+                    <div class="item-content">
+                        <h3>Retenção + Engajamento</h3>
+                        <p>Como aumentar o tempo de visualização e engajamento dos seus reels.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">8</div>
+                    <div class="item-content">
+                        <h3>Áudios Virais</h3>
+                        <p>Como encontrar e usar os áudios que estão bombando no Instagram.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">9</div>
+                    <div class="item-content">
+                        <h3>O Hack Viral</h3>
+                        <p>A estratégia secreta para multiplicar o alcance dos seus melhores conteúdos.</p>
+                    </div>
+                </div>
+                <div class="content-item">
+                    <div class="item-number">+</div>
+                    <div class="item-content">
+                        <h3>Bônus Exclusivos</h3>
+                        <p>Ferramentas essenciais e método para ter ideias infinitas de conteúdo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scarcity Section -->
+    <section class="scarcity" id="oferta">
+        <div class="container">
+            <h2>OFERTA POR TEMPO LIMITADO</h2>
+            <p>Esta oferta especial está disponível apenas por tempo limitado ou enquanto durarem os estoques.</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">07</div>
+                    <div class="countdown-label">Dias</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">23</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">45</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">12</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="price">
+                <span class="original-price">R$97,00</span>
+                <span>R$47,00</span>
+            </div>
+            
+            <a href="#" class="cta-button">QUERO MEU BLACKDIGITAL AGORA</a>
+            
+            <p style="margin-top: 20px;">Pagamento 100% seguro via cartão, Pix ou boleto</p>
+        </div>
+    </section>
+    
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-badge">GARANTIA INCONDICIONAL DE 7 DIAS</div>
+            <h2>SEM RISCO PARA VOCÊ</h2>
+            <p>Se por qualquer motivo você não gostar do BLACKDIGITAL ou achar que ele não é para você, basta mandar um email dentro de 7 dias que devolvemos todo seu dinheiro, sem perguntas ou burocracia. Você não tem nada a perder!</p>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>PRONTO PARA HACKEAR SEUS RESULTADOS NO INSTAGRAM?</h2>
+            <p>O BLACKDIGITAL é o guia definitivo para quem quer crescer no Instagram de forma estratégica e consistente. Não perca mais tempo tentando descobrir sozinho o que já está testado e comprovado.</p>
+            <a href="#oferta" class="cta-button">QUERO MEU BLACKDIGITAL AGORA</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">BLACKHUB</div>
+            <p class="footer-tagline">Hackeie sua mente e seus resultados</p>
+            
+            <div class="social-links">
+                <a target="_blank" href="https://www.instagram.com/blackhatch__/" class="social-link">Instagram</a>
+                <a target="_blank" href="https://www.youtube.com/@Bl4ckHatch" class="social-link">YouTube</a>
+                <a target="_blank" href="https://www.tiktok.com/@black.techgrow" class="social-link">Tiktok</a>
+            </div>
+            
+            <p class="copyright">© 2025 BLACKHUB. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const targetDate = new Date();
+            targetDate.setDate(now.getDate() + 7);
+            
+            const diff = targetDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.benefit-card, .testimonial, .content-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state for animation
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.benefit-card, .testimonial, .content-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            animateOnScroll();
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
