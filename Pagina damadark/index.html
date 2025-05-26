@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>damadark.oficial - Transforme seu feed em vitrine letal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Minimalista */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 25px;
+            border: 1px solid #fff;
+            border-radius: 2px;
+            font-weight: 300;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Hero Section Impactante */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Seção de Filosofia */
+        .philosophy {
+            padding: 100px 0;
+            background-color: #111;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .philosophy-item {
+            border-left: 1px solid #333;
+            padding-left: 30px;
+        }
+
+        .philosophy-item h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .philosophy-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .philosophy-item strong {
+            font-weight: 400;
+            opacity: 1;
+        }
+
+        /* Seção de Serviços */
+        .services {
+            padding: 100px 0;
+            background-color: #000;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .section-title p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            border: 1px solid #333;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: #fff;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            margin-bottom: 30px;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+
+        /* Seção CTA */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+            background-color: #111;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Minimalista */
+        footer {
+            background-color: #000;
+            padding: 60px 0 30px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Minimalista -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span>damadark.oficial</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#philosophy">Filosofia</a></li>
+                    <li><a href="#services">Armas</a></li>
+                    <li><a href="#impact">Impacto</a></li>
+                    <li><a href="#" class="btn">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section Impactante -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Background" class="hero-bg">
+        <div class="container hero-content">
+            <h1>Eu não ensino edição,<br>entro armas forjadas</h1>
+            <p>Faço seu feed fraco virar vitrine letal. A partida já começou — e você ainda nem percebeu.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span>armas forjadas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">246</span>
+                    <span>soldados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">37</span>
+                    <span>aliados</span>
+                </div>
+            </div>
+            
+            <a href="#services" class="btn">Ver Armas</a>
+        </div>
+    </section>
+
+    <!-- Seção de Filosofia -->
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <h2>Paint It, Black</h2>
+                    <p>Você não precisa de mais conteúdo.<br>Precisa de <strong>impacto</strong>.</p>
+                </div>
+                <div class="philosophy-item">
+                    <h2>Map é só sobre vender</h2>
+                    <p>É sobre <strong>vencer com classe</strong>.</p>
+                </div>
+                <div class="philosophy-item">
+                    <h2>O que é bonito, vende</h2>
+                    <p>Mas o que é <strong>bonito e estratégico</strong>... vira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Armas Forjadas</h2>
+                <p>Ferramentas estratégicas para transformar seu feed em vitrine letal</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Feed Letal</h3>
+                    <p>Sequência visual que domina a atenção e converte olhares em engajamento. Cada post é uma peça estratégica no tabuleiro.</p>
+                    <a href="#" class="btn">Saber Mais</a>
+                </div>
+                <div class="service-card">
+                    <h3>Stories Impactantes</h3>
+                    <p>Não apenas stories, mas armas de retenção que mantêm seu público preso à sua narrativa.</p>
+                    <a href="#" class="btn">Saber Mais</a>
+                </div>
+                <div class="service-card">
+                    <h3>Reels Estratégicos</h3>
+                    <p>Conteúdo que não apenas aparece, mas domina o algoritmo e posiciona sua marca como autoridade.</p>
+                    <a href="#" class="btn">Saber Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção CTA -->
+    <section class="cta" id="impact">
+        <div class="container">
+            <h2>Você não precisa aparecer.<br>Precisa impactar.</h2>
+            <p>A partida já começou. Escolha suas armas com sabedoria ou continue sendo apenas mais um no feed.</p>
+            <a href="#" class="btn">Forjar Minhas Armas</a>
+        </div>
+    </section>
+
+    <!-- Footer Minimalista -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    damadark.oficial
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#">Contato</a>
+                    <a href="#">Termos</a>
+                    <a href="#">Privacidade</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 damadark.oficial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efeito de parallax no hero
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            }
+        });
+
+        // Animação ao rolar
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.philosophy-item, .service-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Inicializa elementos como invisíveis
+        window.onload = function() {
+            const elements = document.querySelectorAll('.philosophy-item, .service-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Executa uma vez ao carregar para elementos já visíveis
+        };
+    </script>
+</body>
+</html>
