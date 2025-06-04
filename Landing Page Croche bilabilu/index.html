@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paty Pereira - Arte em Crochê</title>
+    <style>
+        :root {
+            --primary: #FF6B9E;
+            --secondary: #FFD166;
+            --light: #F7FFF7;
+            --dark: #292F36;
+            --accent: #4ECDC4;
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #FFF9FB;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #FF8E9E);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .bio {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        
+        .highlight {
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0.5rem auto;
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn.active, 
+        .category-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .product-price s {
+            color: #999;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+        
+        .cta-section {
+            background-color: #FFF0F5;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            .product-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Paty Pereira" class="profile-pic" width="120" height="120">
+            <h1>@paty.crochebilabiliu</h1>
+            <div class="stats">
+                <div>
+                    <div>101</div>
+                    <div>posts</div>
+                </div>
+                <div>
+                    <div>266</div>
+                    <div>seguidores</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bio">
+            <h3>Paty Pereira</h3>
+            <p>Artesã</p>
+            <p>"Apaixonada por criar com as próprias mãos"</p>
+            <p>Móbili de berço, Bonecas e Santinhas</p>
+        </div>
+    </header>
+    
+    <div class="highlight">
+        Croche Bila Bilu
+    </div>
+    
+    <main class="container">
+        <section class="catalog">
+            <h2 class="section-title">Catálogo de Produtos</h2>
+            
+            <div class="categories">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="Personagens">Personagens</button>
+                <button class="category-btn" data-category="Santinhas">Santinhas</button>
+                <button class="category-btn" data-category="Animais">Animais</button>
+                <button class="category-btn" data-category="Decoração">Decoração</button>
+                <button class="category-btn" data-category="Terços">Terços</button>
+            </div>
+            
+            <div class="products" id="products-container">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div>
+                <h2 style="color: var(--primary);">Não achou o que estava procurando?</h2>
+                <p style="margin-bottom: 2rem;">Envie uma mensagem para Paty Pereira e faça sua encomenda personalizada!</p>
+                <a href="https://wa.me/5511992549400" class="btn btn-primary">Conversar no WhatsApp</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 Paty Pereira - Arte em Crochê</p>
+        <p>Todos os direitos reservados</p>
+        <p>Siga @paty.crochebilabiliu nas redes sociais</p>
+    </footer>
+    
+    <a href="https://wa.me/5511992549400" class="whatsapp-btn" aria-label="Contato pelo WhatsApp">💬</a>
+    
+    <script>
+        // Dados dos produtos
+        const products = [
+            {
+                id: 1,
+                title: "Alice (País das Maravilhas)",
+                description: "Tamanho de 40 a 43 cm",
+                price: "R$ 320,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Alice"
+            },
+            {
+                id: 2,
+                title: "Stitch amigurumi",
+                description: "30 cm aproximadamente",
+                price: "R$ 280,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Stitch"
+            },
+            {
+                id: 3,
+                title: "Moana",
+                description: "Tamanho 35 cm aproximadamente",
+                price: "R$ 280,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Moana"
+            },
+            {
+                id: 4,
+                title: "Chiquinha (Turma do Chaves)",
+                description: "Tamanho de 35 a 40 cm aproximadamente",
+                price: "R$ 280,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Chiquinha"
+            },
+            {
+                id: 5,
+                title: "Chaves",
+                description: "Personagem chaves com 40 cm",
+                price: "R$ 280,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Chaves"
+            },
+            {
+                id: 6,
+                title: "Palhacinha Íris e Lila",
+                description: "Lindas palhacinhas coloridas",
+                price: "R$ 150,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Palhacinha"
+            },
+            {
+                id: 7,
+                title: "Terço em crochê",
+                description: "Em até 2x no cartão de crédito",
+                price: "R$ 59,90",
+                category: "Terços",
+                image: "https://via.placeholder.com/300x250?text=Terço"
+            },
+            {
+                id: 8,
+                title: "Elefantinha dorminhoca",
+                description: "Porta maternidade, quartinho do bebê",
+                price: "R$ 230,00",
+                category: "Animais",
+                image: "https://via.placeholder.com/300x250?text=Elefantinha"
+            },
+            {
+                id: 9,
+                title: "Coelhinha linda!!!",
+                description: "Mini coelhinha",
+                price: "R$ 50,00",
+                category: "Animais",
+                image: "https://via.placeholder.com/300x250?text=Coelhinha"
+            },
+            {
+                id: 10,
+                title: "Girafinha amigurumi",
+                description: "Tamanho 26 cm de altura",
+                price: "R$ 150,00",
+                category: "Animais",
+                image: "https://via.placeholder.com/300x250?text=Girafinha"
+            },
+            {
+                id: 11,
+                title: "Minion",
+                description: "20 cm aproximadamente",
+                price: "R$ 140,00",
+                category: "Personagens",
+                image: "https://via.placeholder.com/300x250?text=Minion"
+            },
+            {
+                id: 12,
+                title: "Santinha NS das Graças",
+                description: "5 dias úteis para confecção",
+                price: "R$ 150,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=Santinha"
+            },
+            {
+                id: 13,
+                title: "Ursinho",
+                description: "Tamanho 15 cm de altura",
+                price: "R$ 120,00",
+                category: "Animais",
+                image: "https://via.placeholder.com/300x250?text=Ursinho"
+            },
+            {
+                id: 14,
+                title: "Enfeite de porta quarto/maternidade",
+                description: "Decoração para a porta da maternidade",
+                price: "R$ 240,00",
+                category: "Decoração",
+                image: "https://via.placeholder.com/300x250?text=Enfeite"
+            },
+            {
+                id: 15,
+                title: "Nossa Senhora Aparecida",
+                description: "Tamanho 23x15 cm aproximadamente",
+                price: "R$ 180,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=NSAparecida"
+            },
+            {
+                id: 16,
+                title: "Móbili Bailarina",
+                description: "Móbili musical tema bailarina",
+                price: "<s>R$ 250,00</s> R$ 189,90",
+                category: "Decoração",
+                image: "https://via.placeholder.com/300x250?text=Bailarina"
+            },
+            {
+                id: 17,
+                title: "Jesus amigurumi",
+                description: "20 cm aproximadamente",
+                price: "R$ 180,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=Jesus"
+            },
+            {
+                id: 18,
+                title: "Anjinho da guarda",
+                description: "Prazo de produção 5 dias úteis",
+                price: "R$ 180,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=Anjinho"
+            },
+            {
+                id: 19,
+                title: "Anjo de cabelos longos",
+                description: "Prazo de produção 5 dias úteis",
+                price: "R$ 180,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=Anjo"
+            },
+            {
+                id: 20,
+                title: "Anjinho",
+                description: "Anjinho com 22 cm",
+                price: "R$ 150,00",
+                category: "Santinhas",
+                image: "https://via.placeholder.com/300x250?text=Anjinho"
+            },
+            {
+                id: 21,
+                title: "Chaveiro de Flor",
+                description: "Cores a escolher conforme disponibilidade",
+                price: "R$ 12,00",
+                category: "Acessórios",
+                image: "https://via.placeholder.com/300x250?text=Chaveiro"
+            }
+        ];
+
+        // Função para renderizar produtos
+        function renderProducts(filter = 'all') {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <span class="product-tag">${product.category}</span>
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        // Filtro de categorias
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                button.classList.add('active');
+                const category = button.dataset.category;
+                renderProducts(category);
+            });
+        });
+
+        // Carregar produtos inicialmente
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Hacking Theme</title> 
+        <style> 
+
+        body { 
+            background-color: #000; 
+            color: #0f0; 
+            font-family: 'Courier New', Courier, monospace; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; }
+
+        .container { text-align: center; } 
+
+        h1 { 
+            font-size: 3em; 
+            margin-bottom: 0.5em; } 
+
+        p { 
+            font-size: 1.5em; }
+
+        .glitch { color: #0f0; 
+            font-size: 2em; 
+            position: relative; 
+            animation: glitch 1s infinite; }
+        
+        @keyframes glitch { 
+            0% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; } 
+            50% { text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; } 
+            100% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; } } 
+        
+        </style>
+
+        </head> 
+        
+        <body> 
+            <div class="container"> 
+                <h1>Bem-vindo ao Mundo Hacker</h1> 
+                <p class="glitch">Sistema Comprometido</p> 
+            </div> 
+        ]</body> 
+        </html>
