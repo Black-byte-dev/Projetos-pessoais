@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Você, Minha Amiga Especial ✨</title>
+    <title>Para o Amor da Minha Vida ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
         
@@ -14,11 +14,11 @@
         }
         
         body {
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            color: #3a506b;
+            color: #5e2b41;
         }
         
         .container {
@@ -36,7 +36,7 @@
         
         h1 {
             font-size: 3.5rem;
-            color: #5d5b6a;
+            color: #d23669;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             animation: pulse 2s infinite;
         }
@@ -44,18 +44,16 @@
         h2 {
             font-size: 2.5rem;
             animation: float 3s ease-in-out infinite;
-            color: #6b5b95;
         }
         
-        .star {
+        .heart {
             position: absolute;
             pointer-events: none;
             animation: float 6s ease-in-out infinite;
-            font-size: 1.5rem;
         }
         
         .message-box {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
             padding: 30px;
             margin: 30px 0;
@@ -64,12 +62,11 @@
             transition: transform 0.5s, box-shadow 0.5s;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(107, 91, 149, 0.2);
         }
         
         .message-box:hover {
             transform: perspective(500px) rotateX(5deg);
-            box-shadow: 0 15px 30px rgba(107, 91, 149, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .message-box::before {
@@ -79,7 +76,7 @@
             left: 0;
             width: 100%;
             height: 10px;
-            background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+            background: linear-gradient(90deg, #ff6b8b, #ff8e53);
             animation: rainbow 5s linear infinite;
         }
         
@@ -116,12 +113,11 @@
             opacity: 0;
             transform: scale(0.8);
             animation: popIn 0.5s forwards;
-            border: 3px solid rgba(255, 255, 255, 0.7);
         }
         
         .photo:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(107, 91, 149, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             z-index: 10;
         }
         
@@ -136,14 +132,14 @@
             width: 200px;
             margin: 30px auto;
             padding: 15px;
-            background: linear-gradient(45deg, #6b5b95, #a1c4fd);
+            background: linear-gradient(45deg, #ff6b8b, #ff8e53);
             color: white;
             border: none;
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(107, 91, 149, 0.4);
+            box-shadow: 0 5px 15px rgba(210, 54, 105, 0.4);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -155,7 +151,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(107, 91, 149, 0.6);
+            box-shadow: 0 8px 20px rgba(210, 54, 105, 0.6);
         }
         
         .btn:active {
@@ -169,7 +165,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #a1c4fd, #6b5b95);
+            background: linear-gradient(45deg, #ff8e53, #ff6b8b);
             transition: all 0.4s ease;
             z-index: -1;
         }
@@ -196,7 +192,7 @@
             max-width: 80%;
             max-height: 80%;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(161, 196, 253, 0.6);
+            box-shadow: 0 0 30px rgba(255, 105, 140, 0.6);
             animation: scaleIn 0.3s;
         }
         
@@ -221,7 +217,6 @@
             font-size: 0.9rem;
             opacity: 0;
             animation: fadeIn 1s 4s forwards;
-            color: #5d5b6a;
         }
         
         /* Keyframes */
@@ -266,10 +261,12 @@
             to { transform: scale(1); opacity: 1; }
         }
         
-        @keyframes sparkle {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         /* Responsivo */
@@ -291,70 +288,67 @@
 </head>
 <body>
     <div class="container">
-        <h1>Para Minha Amiga Especial</h1>
-        <h2>Você merece todo o carinho do mundo ✨</h2>
+        <h1>Feliz Dia dos Namorados!</h1>
+        <h2>Para o Amor da Minha Vida</h2>
         
         <div class="message-box">
-            <p>Oi [Nome da Amiga], queria te dizer o quanto você é importante pra mim!</p>
-            <p>Sua amizade ilumina meus dias como um raio de sol em meio à rotina.</p>
-            <p>Admiro muito sua força, seu sorriso contagiante e sua maneira única de ser.</p>
-            <p>Espero que este presente digital te lembre sempre do quanto você é especial!</p>
+            <p>Querida, neste Dia dos Namorados quero te dizer o quanto você é especial para mim.</p>
+            <p>Cada momento ao seu lado é como uma página de um livro maravilhoso que nunca quero terminar de ler.</p>
+            <p>Seu sorriso ilumina meus dias e seu amor aquece meu coração como o sol da manhã.</p>
+            <p>Que possamos continuar escrevendo nossa história de amor por muitos e muitos anos!</p>
         </div>
         
         <div class="photo-gallery">
-            <img src="https://source.unsplash.com/random/300x300/?friends,happy" alt="Amizade" class="photo">
-            <img src="https://source.unsplash.com/random/300x300/?smile,girl" alt="Sorriso" class="photo">
-            <img src="https://source.unsplash.com/random/300x300/?sunset,beach" alt="Momentos" class="photo">
-            <img src="https://source.unsplash.com/random/300x300/?gift,box" alt="Presente" class="photo">
-            <img src="https://source.unsplash.com/random/300x300/?stars,night" alt="Estrelas" class="photo">
+            <img src="https://source.unsplash.com/random/300x300/?couple,love" alt="Nós juntos" class="photo">
+            <img src="https://source.unsplash.com/random/300x300/?romantic" alt="Momento romântico" class="photo">
+            <img src="https://source.unsplash.com/random/300x300/?kiss" alt="Amor" class="photo">
+            <img src="https://source.unsplash.com/random/300x300/?valentine" alt="Dia dos Namorados" class="photo">
+            <img src="https://source.unsplash.com/random/300x300/?heart" alt="Coração" class="photo">
         </div>
         
         <button class="btn" id="surpresaBtn">Clique para uma surpresa!</button>
         
         <footer>
-            <p>Feito com carinho especialmente para você - [Seu Nome]</p>
+            <p>Feito com ❤️ para você - Dia dos Namorados 2023</p>
         </footer>
     </div>
     
     <div class="modal" id="surpresaModal">
         <span class="close">&times;</span>
-        <img src="https://source.unsplash.com/random/600x600/?friendship,quote" alt="Surpresa" class="modal-content" id="modalImg">
+        <img src="https://source.unsplash.com/random/600x600/?love,message" alt="Surpresa" class="modal-content" id="modalImg">
     </div>
     
     <script>
-        // Criar estrelas flutuantes
-        function createStars() {
-            const star = document.createElement('div');
-            star.innerHTML = '✨';
-            star.classList.add('star');
+        // Criar corações flutuantes
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
             
             // Posição aleatória
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
             
             // Tamanho aleatório
-            const size = Math.random() * 1.5 + 0.5;
-            star.style.fontSize = size + 'rem';
+            const size = Math.random() * 2 + 1;
+            heart.style.fontSize = size + 'rem';
             
             // Duração da animação aleatória
-            star.style.animationDuration = Math.random() * 4 + 3 + 's';
+            heart.style.animationDuration = Math.random() * 4 + 3 + 's';
             
             // Atraso aleatório
-            star.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
             
-            // Animação de brilho
-            star.style.animationName = Math.random() > 0.5 ? 'float' : 'sparkle';
-            
-            document.body.appendChild(star);
+            document.body.appendChild(heart);
             
             // Remover após animação
             setTimeout(() => {
-                star.remove();
+                heart.remove();
             }, 7000);
         }
         
-        // Criar estrelas periodicamente
-        setInterval(createStars, 400);
+        // Criar corações periodicamente
+        setInterval(createHearts, 300);
         
         // Modal de surpresa
         const modal = document.getElementById('surpresaModal');
@@ -366,8 +360,8 @@
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             
-            // Efeito especial
-            btn.style.animation = 'sparkle 0.5s';
+            // Efeito de batimento cardíaco
+            btn.style.animation = 'heartbeat 0.5s';
             setTimeout(() => {
                 btn.style.animation = '';
             }, 500);
