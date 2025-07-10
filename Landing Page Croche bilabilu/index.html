@@ -3,547 +3,880 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paty Pereira - Arte em Crochê</title>
+    <title>Arte em Crochê - Receitas e Bonecos Personalizados</title>
     <style>
         :root {
-            --primary: #FF6B9E;
-            --secondary: #FFD166;
-            --light: #F7FFF7;
-            --dark: #292F36;
-            --accent: #4ECDC4;
-            --whatsapp: #25D366;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --bg-light: #BFBFBA;
+            --brown-light: #A68F72;
+            --brown-medium: #BFA995;
+            --brown-dark: #8C5F4F;
+            --accent: #8C5656;
         }
         
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #FFF9FB;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: #333;
+            transition: background-color 0.5s;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary), #FF8E9E);
+            background-color: var(--brown-dark);
             color: white;
-            padding: 2rem 1rem;
+            padding: 20px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1rem;
+        .header-content {
+            position: relative;
+            z-index: 2;
         }
         
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            margin-bottom: 1rem;
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--brown-dark), var(--accent));
+            opacity: 0.8;
+            z-index: 1;
         }
         
-        .stats {
+        nav {
+            background-color: var(--brown-medium);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
             flex-wrap: wrap;
         }
         
-        .bio {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-        
-        .highlight {
-            background-color: var(--secondary);
-            color: var(--dark);
-            text-align: center;
-            padding: 1rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
+        nav li {
+            margin: 0 20px;
             position: relative;
         }
         
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
-            margin: 0.5rem auto;
-        }
-        
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        nav a {
+            color: white;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav li:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            background-color: var(--brown-light);
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            color: var(--accent);
+            border-bottom: 2px solid var(--brown-medium);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            position: relative;
             display: inline-block;
         }
         
-        .btn-primary {
-            background-color: white;
-            color: var(--primary);
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
         }
         
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .category-btn {
-            padding: 0.5rem 1.5rem;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .category-btn.active, 
-        .category-btn:hover {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
+        .section-title:hover::after {
+            width: 100%;
         }
         
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 30px;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
         .product-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
-        
-        .product-tag {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .product-title {
-            font-size: 1.2rem;
-            margin: 0 0 0.5rem;
-        }
-        
-        .product-description {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .product-price {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin: 1rem 0;
-        }
-        
-        .product-price s {
-            color: #999;
-            font-size: 0.9rem;
-            margin-right: 0.5rem;
-        }
-        
-        .cta-section {
-            background-color: #FFF0F5;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 2rem;
-        }
-        
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: var(--whatsapp);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            height: 200px;
+            background-color: var(--bg-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-            z-index: 100;
-            transition: all 0.3s ease;
+            overflow: hidden;
         }
         
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
         
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            color: var(--brown-dark);
+            margin-top: 0;
+            transition: color 0.3s;
+        }
+        
+        .product-card:hover .product-title {
+            color: var(--accent);
+        }
+        
+        .price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .btn:hover {
+            background-color: var(--brown-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        .collections {
+            background-color: var(--brown-medium);
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+        
+        footer {
+            background-color: var(--brown-dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--accent);
+        }
+        
+        /* Carrossel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            display: block;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.5);
+            color: var(--accent);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .carousel-control.prev {
+            left: 15px;
+        }
+        
+        .carousel-control.next {
+            right: 15px;
+        }
+        
+        /* Loading */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loader.active {
+            display: flex;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--bg-light);
+            border-top: 5px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--brown-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsivo */
         @media (max-width: 768px) {
-            .products {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            nav ul {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .product-image {
-                height: 200px;
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 30px 15px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="loader active">
+        <div class="spinner"></div>
+    </div>
+    
     <header>
-        <div class="profile">
-            <img src="https://via.placeholder.com/150" alt="Paty Pereira" class="profile-pic" width="120" height="120">
-            <h1>@paty.crochebilabiliu</h1>
-            <div class="stats">
-                <div>
-                    <div>101</div>
-                    <div>posts</div>
-                </div>
-                <div>
-                    <div>266</div>
-                    <div>seguidores</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bio">
-            <h3>Paty Pereira</h3>
-            <p>Artesã</p>
-            <p>"Apaixonada por criar com as próprias mãos"</p>
-            <p>Móbili de berço, Bonecas e Santinhas</p>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>Arte em Crochê</h1>
+            <p>Receitas exclusivas e bonecos personalizados feitos com amor</p>
         </div>
     </header>
     
-    <div class="highlight">
-        Croche Bila Bilu
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#receitas">Receitas</a></li>
+            <li><a href="#bonecos">Bonecos</a></li>
+            <li><a href="#colecoes">Coleções</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
     
-    <main class="container">
-        <section class="catalog">
-            <h2 class="section-title">Catálogo de Produtos</h2>
-            
-            <div class="categories">
-                <button class="category-btn active" data-category="all">Todos</button>
-                <button class="category-btn" data-category="Personagens">Personagens</button>
-                <button class="category-btn" data-category="Santinhas">Santinhas</button>
-                <button class="category-btn" data-category="Animais">Animais</button>
-                <button class="category-btn" data-category="Decoração">Decoração</button>
-                <button class="category-btn" data-category="Terços">Terços</button>
-            </div>
-            
-            <div class="products" id="products-container">
-                <!-- Produtos serão inseridos via JavaScript -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Peças únicas feitas à mão</h2>
+                <p>Encomende seu boneco personalizado ou adquira nossas receitas exclusivas</p>
+                <a href="#bonecos" class="btn">Ver Bonecos</a>
+                <a href="#receitas" class="btn">Ver Receitas</a>
             </div>
         </section>
         
-        <section class="cta-section">
-            <div>
-                <h2 style="color: var(--primary);">Não achou o que estava procurando?</h2>
-                <p style="margin-bottom: 2rem;">Envie uma mensagem para Paty Pereira e faça sua encomenda personalizada!</p>
-                <a href="https://wa.me/5511992549400" class="btn btn-primary">Conversar no WhatsApp</a>
+        <section id="receitas">
+            <h2 class="section-title">Receitas de Crochê</h2>
+            <div class="products" id="recipes-container">
+                <!-- Produtos serão carregados via JavaScript -->
             </div>
         </section>
-    </main>
+        
+        <section id="bonecos">
+            <h2 class="section-title">Bonecos Personalizados</h2>
+            
+            <div class="carousel">
+                <div class="carousel-inner" id="dolls-carousel">
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1608549036505-ead5b1de5415?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de crochê">
+                        <div class="carousel-caption">
+                            <h3>Bonecos Personalizados</h3>
+                            <p>Criados especialmente para você</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1586449480558-33ae22ffc60b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de casal">
+                        <div class="carousel-caption">
+                            <h3>Casais Personalizados</h3>
+                            <p>Presentes únicos para ocasiões especiais</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de bebê">
+                        <div class="carousel-caption">
+                            <h3>Bonecos de Bebê</h3>
+                            <p>Recordações fofas do seu pequeno</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control prev">&#10094;</button>
+                <button class="carousel-control next">&#10095;</button>
+            </div>
+            
+            <div class="products" id="dolls-container">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </section>
+    </div>
+    
+    <section class="collections" id="colecoes">
+        <div class="container">
+            <h2 class="section-title">Nossas Coleções</h2>
+            <div class="products" id="collections-container">
+                <!-- Coleções serão carregadas via JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="sobre">
+            <h2 class="section-title">Sobre Nós</h2>
+            <p>Somos artesãos apaixonados por crochê, criando peças únicas e especiais desde 2010. Nossa missão é espalhar o amor pelo artesanato através de receitas detalhadas e bonecos personalizados que carregam histórias e significados especiais.</p>
+            
+            <button id="show-more-btn" class="btn" style="margin-top: 20px;">Mostrar Mais</button>
+            
+            <div id="more-content" style="display: none; margin-top: 20px;">
+                <p>Trabalhamos com materiais de alta qualidade e cada peça é feita com atenção aos detalhes. Nossas receitas são testadas e aprovadas por diversas artesãs antes de serem disponibilizadas para venda.</p>
+                <p>Além de vender receitas e bonecos prontos, oferecemos workshops online para quem quer aprender ou aprimorar suas técnicas de crochê.</p>
+            </div>
+        </section>
+        
+        <section id="contato">
+            <h2 class="section-title">Contato</h2>
+            <form id="contact-form" style="max-width: 500px; margin: 0 auto;">
+                <div style="margin-bottom: 15px;">
+                    <label for="name" style="display: block; margin-bottom: 5px;">Nome:</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid var(--brown-medium);">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid var(--brown-medium);">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="message" style="display: block; margin-bottom: 5px;">Mensagem:</label>
+                    <textarea id="message" rows="5" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid var(--brown-medium);"></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+            
+            <div id="form-success" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #d4edda; color: #155724; border-radius: 5px;">
+                Mensagem enviada com sucesso! Entraremos em contato em breve.
+            </div>
+        </section>
+    </div>
     
     <footer>
-        <p>© 2025 Paty Pereira - Arte em Crochê</p>
-        <p>Todos os direitos reservados</p>
-        <p>Siga @paty.crochebilabiliu nas redes sociais</p>
+        <p>&copy; <span id="current-year"></span> Arte em Crochê - Todos os direitos reservados</p>
+        <div style="margin-top: 10px;">
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-pinterest"></i></a>
+        </div>
     </footer>
     
-    <a href="https://wa.me/5511992549400" class="whatsapp-btn" aria-label="Contato pelo WhatsApp">💬</a>
+    <div class="back-to-top" id="back-to-top" title="Voltar ao topo">
+        &#9650;
+    </div>
+    
+    <!-- Modal de Produto -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content">
+                <!-- Conteúdo será carregado via JavaScript -->
+            </div>
+        </div>
+    </div>
     
     <script>
-        // Dados dos produtos
-        const products = [
-            {
-                id: 1,
-                title: "Alice (País das Maravilhas)",
-                description: "Tamanho de 40 a 43 cm",
-                price: "R$ 320,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Alice"
-            },
-            {
-                id: 2,
-                title: "Stitch amigurumi",
-                description: "30 cm aproximadamente",
-                price: "R$ 280,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Stitch"
-            },
-            {
-                id: 3,
-                title: "Moana",
-                description: "Tamanho 35 cm aproximadamente",
-                price: "R$ 280,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Moana"
-            },
-            {
-                id: 4,
-                title: "Chiquinha (Turma do Chaves)",
-                description: "Tamanho de 35 a 40 cm aproximadamente",
-                price: "R$ 280,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Chiquinha"
-            },
-            {
-                id: 5,
-                title: "Chaves",
-                description: "Personagem chaves com 40 cm",
-                price: "R$ 280,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Chaves"
-            },
-            {
-                id: 6,
-                title: "Palhacinha Íris e Lila",
-                description: "Lindas palhacinhas coloridas",
-                price: "R$ 150,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Palhacinha"
-            },
-            {
-                id: 7,
-                title: "Terço em crochê",
-                description: "Em até 2x no cartão de crédito",
-                price: "R$ 59,90",
-                category: "Terços",
-                image: "https://via.placeholder.com/300x250?text=Terço"
-            },
-            {
-                id: 8,
-                title: "Elefantinha dorminhoca",
-                description: "Porta maternidade, quartinho do bebê",
-                price: "R$ 230,00",
-                category: "Animais",
-                image: "https://via.placeholder.com/300x250?text=Elefantinha"
-            },
-            {
-                id: 9,
-                title: "Coelhinha linda!!!",
-                description: "Mini coelhinha",
-                price: "R$ 50,00",
-                category: "Animais",
-                image: "https://via.placeholder.com/300x250?text=Coelhinha"
-            },
-            {
-                id: 10,
-                title: "Girafinha amigurumi",
-                description: "Tamanho 26 cm de altura",
-                price: "R$ 150,00",
-                category: "Animais",
-                image: "https://via.placeholder.com/300x250?text=Girafinha"
-            },
-            {
-                id: 11,
-                title: "Minion",
-                description: "20 cm aproximadamente",
-                price: "R$ 140,00",
-                category: "Personagens",
-                image: "https://via.placeholder.com/300x250?text=Minion"
-            },
-            {
-                id: 12,
-                title: "Santinha NS das Graças",
-                description: "5 dias úteis para confecção",
-                price: "R$ 150,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=Santinha"
-            },
-            {
-                id: 13,
-                title: "Ursinho",
-                description: "Tamanho 15 cm de altura",
-                price: "R$ 120,00",
-                category: "Animais",
-                image: "https://via.placeholder.com/300x250?text=Ursinho"
-            },
-            {
-                id: 14,
-                title: "Enfeite de porta quarto/maternidade",
-                description: "Decoração para a porta da maternidade",
-                price: "R$ 240,00",
-                category: "Decoração",
-                image: "https://via.placeholder.com/300x250?text=Enfeite"
-            },
-            {
-                id: 15,
-                title: "Nossa Senhora Aparecida",
-                description: "Tamanho 23x15 cm aproximadamente",
-                price: "R$ 180,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=NSAparecida"
-            },
-            {
-                id: 16,
-                title: "Móbili Bailarina",
-                description: "Móbili musical tema bailarina",
-                price: "<s>R$ 250,00</s> R$ 189,90",
-                category: "Decoração",
-                image: "https://via.placeholder.com/300x250?text=Bailarina"
-            },
-            {
-                id: 17,
-                title: "Jesus amigurumi",
-                description: "20 cm aproximadamente",
-                price: "R$ 180,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=Jesus"
-            },
-            {
-                id: 18,
-                title: "Anjinho da guarda",
-                description: "Prazo de produção 5 dias úteis",
-                price: "R$ 180,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=Anjinho"
-            },
-            {
-                id: 19,
-                title: "Anjo de cabelos longos",
-                description: "Prazo de produção 5 dias úteis",
-                price: "R$ 180,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=Anjo"
-            },
-            {
-                id: 20,
-                title: "Anjinho",
-                description: "Anjinho com 22 cm",
-                price: "R$ 150,00",
-                category: "Santinhas",
-                image: "https://via.placeholder.com/300x250?text=Anjinho"
-            },
-            {
-                id: 21,
-                title: "Chaveiro de Flor",
-                description: "Cores a escolher conforme disponibilidade",
-                price: "R$ 12,00",
-                category: "Acessórios",
-                image: "https://via.placeholder.com/300x250?text=Chaveiro"
-            }
-        ];
-
-        // Função para renderizar produtos
-        function renderProducts(filter = 'all') {
-            const container = document.getElementById('products-container');
-            container.innerHTML = '';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simular carregamento
+            setTimeout(function() {
+                document.querySelector('.loader').classList.remove('active');
+            }, 1500);
             
-            const filteredProducts = filter === 'all' 
-                ? products 
-                : products.filter(product => product.category === filter);
+            // Atualizar ano no footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            filteredProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
-                    <div class="product-info">
-                        <span class="product-tag">${product.category}</span>
-                        <h3 class="product-title">${product.title}</h3>
-                        <p class="product-description">${product.description}</p>
-                        <div class="product-price">${product.price}</div>
-                    </div>
-                `;
-                container.appendChild(productCard);
+            // Botão "Mostrar Mais"
+            document.getElementById('show-more-btn').addEventListener('click', function() {
+                const moreContent = document.getElementById('more-content');
+                if (moreContent.style.display === 'none') {
+                    moreContent.style.display = 'block';
+                    this.textContent = 'Mostrar Menos';
+                } else {
+                    moreContent.style.display = 'none';
+                    this.textContent = 'Mostrar Mais';
+                }
             });
-        }
-
-        // Filtro de categorias
-        document.querySelectorAll('.category-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
+            
+            // Formulário de contato
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simular envio
+                document.getElementById('form-success').style.display = 'block';
+                this.reset();
+                
+                setTimeout(function() {
+                    document.getElementById('form-success').style.display = 'none';
+                }, 5000);
+            });
+            
+            // Botão voltar ao topo
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('back-to-top');
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            document.getElementById('back-to-top').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Carrossel
+            const carousel = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            const itemWidth = 100;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+            
+            // Auto-rotacionar carrossel
+            setInterval(function() {
+                currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+            
+            // Dados dos produtos (simulando uma API)
+            const productsData = {
+                recipes: [
+                    {
+                        id: 1,
+                        title: "Receita: Ursinho Fofinho",
+                        description: "Passo a passo completo para criar um lindo ursinho de crochê. Inclui padrão detalhado, lista de materiais e fotos ilustrativas.",
+                        price: 25.90,
+                        image: "https://images.unsplash.com/photo-1608549036505-ead5b1de5415?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 2,
+                        title: "Receita: Boneca Primavera",
+                        description: "Tutorial detalhado para fazer uma boneca com vestido florido. Padrão inclui variações para diferentes tamanhos.",
+                        price: 29.90,
+                        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 3,
+                        title: "Receita: Conjunto Natalino",
+                        description: "Padrões para criar enfeites e bonecos de Natal. Inclui 5 padrões diferentes com instruções claras.",
+                        price: 34.90,
+                        image: "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    }
+                ],
+                dolls: [
+                    {
+                        id: 1,
+                        title: "Boneco Personalizado",
+                        description: "Encomende um boneco único feito especialmente para você. Envie suas especificações e criaremos uma peça exclusiva.",
+                        price: 89.90,
+                        image: "https://images.unsplash.com/photo-1586449480558-33ae22ffc60b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 2,
+                        title: "Casais Personalizados",
+                        description: "Bonecos feitos sob medida para presentear casais. Podemos reproduzir características específicas como roupas e acessórios.",
+                        price: 149.90,
+                        image: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 3,
+                        title: "Bonecos de Bebês",
+                        description: "Replique seu bebê em uma versão fofa de crochê. Envie fotos para que possamos capturar os detalhes especiais.",
+                        price: 119.90,
+                        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    }
+                ],
+                collections: [
+                    {
+                        id: 1,
+                        title: "Coleção Inverno",
+                        description: "Bonecos e acessórios com tema de inverno. Inclui gorros, cachecóis e bonecos vestidos para o frio.",
+                        image: "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 2,
+                        title: "Coleção Personagens",
+                        description: "Seus personagens favoritos em versão crochê. Desde super-heróis até personagens de desenhos animados.",
+                        image: "https://images.unsplash.com/photo-1608549036505-ead5b1de5415?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    },
+                    {
+                        id: 3,
+                        title: "Coleção Animais",
+                        description: "Diversos animais fofos feitos com crochê. Inclui padrões para pets personalizados.",
+                        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    }
+                ]
+            };
+            
+            // Carregar produtos dinamicamente
+            function loadProducts() {
+                const recipesContainer = document.getElementById('recipes-container');
+                const dollsContainer = document.getElementById('dolls-container');
+                const collectionsContainer = document.getElementById('collections-container');
+                
+                // Carregar receitas
+                productsData.recipes.forEach(recipe => {
+                    recipesContainer.innerHTML += `
+                        <div class="product-card" data-id="${recipe.id}" data-type="recipe">
+                            <div class="product-image">
+                                <img src="${recipe.image}" alt="${recipe.title}">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">${recipe.title}</h3>
+                                <p>${recipe.description}</p>
+                                <span class="price">R$ ${recipe.price.toFixed(2)}</span>
+                                <br>
+                                <button class="btn view-product" data-id="${recipe.id}" data-type="recipe">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    `;
                 });
                 
-                button.classList.add('active');
-                const category = button.dataset.category;
-                renderProducts(category);
+                // Carregar bonecos
+                productsData.dolls.forEach(doll => {
+                    dollsContainer.innerHTML += `
+                        <div class="product-card" data-id="${doll.id}" data-type="doll">
+                            <div class="product-image">
+                                <img src="${doll.image}" alt="${doll.title}">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">${doll.title}</h3>
+                                <p>${doll.description}</p>
+                                <span class="price">R$ ${doll.price.toFixed(2)}</span>
+                                <br>
+                                <button class="btn view-product" data-id="${doll.id}" data-type="doll">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Carregar coleções
+                productsData.collections.forEach(collection => {
+                    collectionsContainer.innerHTML += `
+                        <div class="product-card" data-id="${collection.id}" data-type="collection">
+                            <div class="product-image">
+                                <img src="${collection.image}" alt="${collection.title}">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">${collection.title}</h3>
+                                <p>${collection.description}</p>
+                                <button class="btn view-product" data-id="${collection.id}" data-type="collection">Ver Coleção</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Adicionar eventos aos botões de visualização
+                document.querySelectorAll('.view-product').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const type = this.getAttribute('data-type');
+                        showProductModal(id, type);
+                    });
+                });
+            }
+            
+            // Mostrar modal de produto
+            function showProductModal(id, type) {
+                let product;
+                
+                if (type === 'recipe') {
+                    product = productsData.recipes.find(item => item.id === id);
+                } else if (type === 'doll') {
+                    product = productsData.dolls.find(item => item.id === id);
+                } else {
+                    product = productsData.collections.find(item => item.id === id);
+                }
+                
+                if (product) {
+                    let modalContent = `
+                        <h2>${product.title}</h2>
+                        <div style="display: flex; flex-wrap: wrap; margin: 20px 0;">
+                            <div style="flex: 1; min-width: 250px; margin-right: 20px;">
+                                <img src="${product.image}" alt="${product.title}" style="width: 100%; border-radius: 5px;">
+                            </div>
+                            <div style="flex: 2; min-width: 250px;">
+                                <p>${product.description}</p>
+                    `;
+                    
+                    if (product.price) {
+                        modalContent += `
+                            <p style="font-size: 1.5em; color: var(--accent); margin: 15px 0;">
+                                <strong>R$ ${product.price.toFixed(2)}</strong>
+                            </p>
+                        `;
+                    }
+                    
+                    modalContent += `
+                                <button class="btn" style="margin-top: 15px;">
+                                    ${type === 'collection' ? 'Ver Itens da Coleção' : 'Adicionar ao Carrinho'}
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.getElementById('modal-content').innerHTML = modalContent;
+                    document.getElementById('product-modal').classList.add('active');
+                }
+            }
+            
+            // Fechar modal
+            document.querySelector('.close-modal').addEventListener('click', function() {
+                document.getElementById('product-modal').classList.remove('active');
             });
-        });
-
-        // Carregar produtos inicialmente
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
+            
+            // Fechar modal ao clicar fora
+            window.addEventListener('click', function(e) {
+                if (e.target === document.getElementById('product-modal')) {
+                    document.getElementById('product-modal').classList.remove('active');
+                }
+            });
+            
+            // Iniciar carregamento dos produtos
+            loadProducts();
+            
+            // Efeito de digitação no título
+            const heroTitle = document.querySelector('.hero h2');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
         });
     </script>
+    
+    <!-- Ícones do Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
