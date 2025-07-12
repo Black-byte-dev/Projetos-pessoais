@@ -4,436 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arte em Crochê - Receitas e Bonecos Personalizados</title>
-    <style>
-        :root {
-            --bg-light: #BFBFBA;
-            --brown-light: #A68F72;
-            --brown-medium: #BFA995;
-            --brown-dark: #8C5F4F;
-            --accent: #8C5656;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: #333;
-            transition: background-color 0.5s;
-        }
-        
-        header {
-            background-color: var(--brown-dark);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--brown-dark), var(--accent));
-            opacity: 0.8;
-            z-index: 1;
-        }
-        
-        nav {
-            background-color: var(--brown-medium);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            flex-wrap: wrap;
-        }
-        
-        nav li {
-            margin: 0 20px;
-            position: relative;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            padding: 5px 0;
-        }
-        
-        nav a:hover {
-            color: var(--accent);
-        }
-        
-        nav li::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
-        }
-        
-        nav li:hover::after {
-            width: 100%;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .hero {
-            background-color: var(--brown-light);
-            padding: 50px;
-            text-align: center;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.2;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title {
-            color: var(--accent);
-            border-bottom: 2px solid var(--brown-medium);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50%;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
-        }
-        
-        .section-title:hover::after {
-            width: 100%;
-        }
-        
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .product-image {
-            height: 200px;
-            background-color: var(--bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-info {
-            padding: 15px;
-        }
-        
-        .product-title {
-            color: var(--brown-dark);
-            margin-top: 0;
-            transition: color 0.3s;
-        }
-        
-        .product-card:hover .product-title {
-            color: var(--accent);
-        }
-        
-        .price {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        
-        .btn:hover {
-            background-color: var(--brown-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .collections {
-            background-color: var(--brown-medium);
-            padding: 40px 0;
-            margin: 40px 0;
-        }
-        
-        footer {
-            background-color: var(--brown-dark);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            transform: translateY(-50px);
-            transition: transform 0.3s;
-        }
-        
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--accent);
-        }
-        
-        /* Carrossel */
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-item {
-            min-width: 100%;
-            position: relative;
-        }
-        
-        .carousel-item img {
-            width: 100%;
-            display: block;
-        }
-        
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255,255,255,0.5);
-            color: var(--accent);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-        
-        .carousel-control.prev {
-            left: 15px;
-        }
-        
-        .carousel-control.next {
-            right: 15px;
-        }
-        
-        /* Loading */
-        .loader {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255,255,255,0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .loader.active {
-            display: flex;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--bg-light);
-            border-top: 5px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Back to top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--accent);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background-color: var(--brown-dark);
-            transform: translateY(-5px);
-        }
-        
-        /* Responsivo */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 5px 0;
-            }
-            
-            .hero {
-                padding: 30px 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="loader active">
@@ -443,8 +14,8 @@
     <header>
         <div class="header-bg"></div>
         <div class="header-content">
-            <h1>Arte em Crochê</h1>
-            <p>Receitas exclusivas e bonecos personalizados feitos com amor</p>
+            <h1>Bila Bilu</h1>
+            <p>Receitas exclusivas e amigurumis personalizados feitos com amor</p>
         </div>
     </header>
     
@@ -461,10 +32,10 @@
     <div class="container">
         <section class="hero">
             <div class="hero-content">
-                <h2>Peças únicas feitas à mão</h2>
-                <p>Encomende seu boneco personalizado ou adquira nossas receitas exclusivas</p>
-                <a href="#bonecos" class="btn">Ver Bonecos</a>
-                <a href="#receitas" class="btn">Ver Receitas</a>
+                <h2>Pecas feitas a mao</h2>
+                <p>Encomendas personalizadas ou Receitas exclusivas</p>
+                <a href="bonecos" class="btn">Bonecos</a>
+                <a href="#receitas" class="btn">Receitas</a>
             </div>
         </section>
         
@@ -481,25 +52,26 @@
             <div class="carousel">
                 <div class="carousel-inner" id="dolls-carousel">
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1608549036505-ead5b1de5415?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de crochê">
+                        <img src="Imagens/IMG_0913.PNG" alt="Bonecos de crochê">
                         <div class="carousel-caption">
                             <h3>Bonecos Personalizados</h3>
                             <p>Criados especialmente para você</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1586449480558-33ae22ffc60b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de casal">
+                        <img src="Imagens/IMG_0921.PNG" alt="Bonecos de casal">
                         <div class="carousel-caption">
                             <h3>Casais Personalizados</h3>
                             <p>Presentes únicos para ocasiões especiais</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bonecos de bebê">
+                        <img src="Imagens/IMG_0909.PNG" alt="Bonecos de bebê">
                         <div class="carousel-caption">
                             <h3>Bonecos de Bebê</h3>
                             <p>Recordações fofas do seu pequeno</p>
                         </div>
+                        
                     </div>
                 </div>
                 <button class="carousel-control prev">&#10094;</button>
@@ -665,26 +237,34 @@
             const productsData = {
                 recipes: [
                     {
+                        id: 0,
+                        title: "Receita: Ursinho Fofinho",
+                        description: "Passo a passo completo para criar um lindo ursinho de crochê. Inclui padrão detalhado, lista de materiais e fotos ilustrativas.",
+                        price: 25.90,
+                        image: "Imagens/IMG_0913.PNG"
+                    },
+                    {
                         id: 1,
                         title: "Receita: Ursinho Fofinho",
                         description: "Passo a passo completo para criar um lindo ursinho de crochê. Inclui padrão detalhado, lista de materiais e fotos ilustrativas.",
                         price: 25.90,
-                        image: "https://images.unsplash.com/photo-1608549036505-ead5b1de5415?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        image: "Imagens/IMG_0913.PNG"
                     },
                     {
                         id: 2,
                         title: "Receita: Boneca Primavera",
                         description: "Tutorial detalhado para fazer uma boneca com vestido florido. Padrão inclui variações para diferentes tamanhos.",
                         price: 29.90,
-                        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        image: "Imagens/IMG_0913.PNG"
                     },
                     {
                         id: 3,
                         title: "Receita: Conjunto Natalino",
                         description: "Padrões para criar enfeites e bonecos de Natal. Inclui 5 padrões diferentes com instruções claras.",
                         price: 34.90,
-                        image: "https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                        image: "Imagens/IMG_0913.PNG"
                     }
+                    
                 ],
                 dolls: [
                     {
