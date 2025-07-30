@@ -1,600 +1,167 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackhub | Hackeando o Sistema. Dominando o Jogo.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>BlackHub - Hackeando o Sistema. Dominando o Jogo.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="particles-js"></div>
+    <div class="glitch-overlay"></div>
     
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo glitch-text" data-text="BLACKHUB">BLACK<span>HUB</span></div>
-                
-                <div class="menu-btn" id="menu-btn">
-                    <div class="menu-btn__burger"></div>
-                </div>
-                
-                <div class="nav-links" id="nav-links">
-                    <a href="#home" class="nav-link">INÍCIO</a>
-                    <a href="#features" class="nav-link">RECURSOS</a>
-                    <a href="#about" class="nav-link">SOBRE</a>
-                    <a href="#contact" class="nav-link">CONTATO</a>
-                    <a href="#" id="theme-toggle" class="nav-link">MODO CLARO</a>
-                </div>
-            </nav>
-        </div>
-        <div class="scanline"></div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/LogoEscrita.png" alt="BlackHub Logo" class="logo-img">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#conteudo" class="nav-link">Conteúdo</a>
+                <a href="#videos" class="nav-link">Vídeos</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </div>
+        </nav>
     </header>
-    
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="glitch-text" data-text="Hackeando o Sistema">Hackeando o Sistema</h1>
-                <h1 class="glitch-text" data-text="Dominando o Jogo.">Dominando o Jogo.</h1>
-                <p>Aqui no Blackhub, a gente não segue as regras. A gente dobra elas. Prepare-se para uma tecnologia na veia e crescimento na bala.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn">Entrar no Código</a>
-                    <a href="#features" class="btn btn-secondary">Ver as Armas</a>
-                </div>
 
-                <div class="hero-image-wrapper">
-                    <img src="imagens/ChatGPT Image 21 de jun. de 2025, 19_25_28.png" alt="Blackhub Logo - Hacker Visionary">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hackeando o Sistema. Dominando o Jogo.</h1>
+            <p class="hero-subtitle">Tecnologia na veia. Crescimento na bala.</p>
+            <div class="hero-cta">
+                <button class="cta-button">Entrar no Jogo</button>
+            </div>
+        </div>
+        <div class="hero-bg-pattern"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">O Guia Fora da Curva</h2>
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <p class="bio-text">Eu sou o Black. Aprendi a programar na quebrada, vendi produto no digital antes de saber que existia funil. Hoje eu hackeio plataformas, ensino o jogo e crio autoridade na bala usando IA como minha arma secreta.</p>
+                            <p class="bio-text">Se tu quer aprender marketing, IA e crescimento do jeito real, chegou. Aqui você vai ver como a inteligência artificial pode ser sua aliada pra dominar o jogo digital.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/LogoP.png" alt="Black Logo" class="about-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Pillars Section -->
+    <section id="conteudo" class="content-pillars">
+        <div class="container">
+            <h2 class="section-title">Pilares de Conteúdo</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="card-header">
+                        <div class="card-icon">🔧</div>
+                        <h3>Hacks & Ferramentas</h3>
+                    </div>
+                    <p>Vídeos curtos e diretos mostrando automações com IA, ferramentas inteligentes, atalhos que só quem manja de tecnologia conhece. O que funciona de verdade no mundo da inteligência artificial.</p>
                 </div>
                 
-                <div class="code-container">
-                    <div class="code-header">
-                        <div class="code-dots">
-                            <div class="code-dot dot-red"></div>
-                            <div class="code-dot dot-yellow"></div>
-                            <div class="code-dot dot-green"></div>
-                        </div>
-                        <div class="code-title">blackhub_init.sh</div>
+                <div class="pillar-card">
+                    <div class="card-header">
+                        <div class="card-icon">🧠</div>
+                        <h3>Mentalidade Hacker</h3>
                     </div>
-                    <div class="code-snippet">
-                        <pre>
-<span class="comment"># Bem-vindo ao Blackhub: Onde o código encontra a rua.</span>
-<span class="function">hack_o_sistema</span>() {
-    <span class="variable">meta</span>=<span class="string">"sucesso_implacavel"</span>
-    <span class="keyword">if</span> [ <span class="variable">$meta</span> == <span class="string">"sucesso_implacavel"</span> ]; <span class="keyword">then</span>
-        <span class="variable">resultado</span>=<span class="string">"lucro_maximo"</span>
-        <span class="keyword">echo</span> <span class="string">"Saca só: estamos em ${resultado}!"</span>
-        <span class="function">dominar_o_jogo</span> <span class="variable">$resultado</span>
-    <span class="keyword">else</span>
-        <span class="keyword">echo</span> <span class="string">"Tá ligado? Tem algo errado aqui."</span>
-    <span class="keyword">fi</span>
-}
+                    <p>Como pensar como um player que joga pra vencer usando IA, não pra agradar o sistema. Mindset real de quem entende que a inteligência artificial é o futuro e já tá surfando nessa onda.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="card-header">
+                        <div class="card-icon">👑</div>
+                        <h3>Códigos da Autoridade</h3>
+                    </div>
+                    <p>Bastidores, erros que te ensinaram, e o que ninguém te conta sobre crescer online usando IA. Os segredos que só quem tá na linha de frente da tecnologia conhece.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="card-header">
+                        <div class="card-icon">⚡</div>
+                        <h3>Desafios Semanais</h3>
+                    </div>
+                    <p>Micro-missões que ativam a comunidade usando IA. Exemplo: "7 dias usando ChatGPT pra gerar grana", "Automatize sua vida com IA em 5 dias".</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="card-header">
+                        <div class="card-icon">🕵️</div>
+                        <h3>Espionagem Digital</h3>
+                    </div>
+                    <p>Análises rápidas de concorrentes usando IA, estratégias de anúncios automatizadas, como eles tão vendendo sem você notar e como a inteligência artificial tá mudando o jogo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<span class="function">hack_o_sistema</span></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="features" id="features">
+    <!-- Videos Section -->
+    <section id="videos" class="videos-section">
         <div class="container">
-            <h2 class="section-title glitch-text" data-text="Nossas Armas">Nossas Armas</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fluxo de Lucro</h3>
-                    <p>Estratégias digitais que transformam cliques em caixa. A gente mostra o pulo do gato pra escalar seus ganhos, tá ligado?</p>
+            <h2 class="section-title">Meus Vídeos de IA e Tecnologia</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>Como a IA Está Revolucionando o Marketing Digital</h3>
+                    <p>Neste vídeo, eu mostro como usar inteligência artificial para automatizar suas campanhas e multiplicar seus resultados. Saca só essas ferramentas que vão mudar seu jogo.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>IA Malandra</h3>
-                    <p>Inteligência Artificial que aprende na rua, otimiza seus movimentos e garante que você esteja sempre um passo à frente.</p>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/xvFZjo5PgG0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>Automação com IA: 5 Ferramentas que Todo Empreendedor Precisa Conhecer</h3>
+                    <p>Aqui eu quebro o código e mostro as ferramentas de IA que uso no dia a dia pra automatizar processos e ganhar tempo. Essas são as armas secretas dos hackers digitais.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚫</div>
-                    <h3>Anti-Sistema</h3>
-                    <p>Design e táticas que quebram padrões. Criamos uma presença digital única, que te destaca da manada.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Blindagem</h3>
-                    <p>Sua segurança é a nossa fortaleza. Protegemos seus dados e suas operações contra qualquer ameaça cibernética.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Turbo Performance</h3>
-                    <p>Velocidade e eficiência são a chave. Nossas soluções são otimizadas para te dar o máximo de performance, sem lag.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Atualização Constante</h3>
-                    <p>O digital não para, e a gente também não. Sempre atualizados com as últimas tendências e táticas de mercado.</p>
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/P_mF-s1bJ40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>Mentalidade Hacker: Como Pensar Fora da Caixa com IA</h3>
+                    <p>Neste papo real, eu explico como desenvolver uma mentalidade hacker usando IA como aliada. É sobre pensar diferente, questionar tudo e usar tecnologia pra sair na frente.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section class="about" id="about">
+
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=1000" alt="Cyberpunk City Skyline">
-                </div>
-                <div class="about-content">
-                    <h2>Quem é o <span class="glitch-text" data-text="Blackhub">Blackhub</span>?</h2>
-                    <p>A gente não é só mais uma agência digital. Somos os arquitetos do seu sucesso no submundo da internet. Somos a equipe por trás dos resultados que parecem magia, mas é só código e estratégia afiada.</p>
-                    <p>Nossa missão é clara: te tirar da caixinha e te colocar no topo. Se você quer virar o jogo, tá no lugar certo.</p>
-                    
-                    <h3 style="margin-top: 2rem; color: var(--azul-eletrico);">Nosso Arsenal Tecnológico</h3>
-                    <div class="tech-stack">
-                        <div class="tech-item">JS Dominado</div>
-                        <div class="tech-item">Python Pura</div>
-                        <div class="tech-item">TensorFlow Hack</div>
-                        <div class="tech-item">Blockchain na Veia</div>
-                        <div class="tech-item">Redes Neurais</div>
-                        <div class="tech-item">Big Data pra Quebrar</div>
-                    </div>
-                    
-                    <button class="btn" style="margin-top: 2rem;" id="open-modal">Entender o Jogo</button>
-                </div>
+            <div class="cta-content">
+                <h2>Se você tá tentando crescer no digital seguindo regra demais, já perdeu.</h2>
+                <p>Aqui é o Black, e eu vou te mostrar como dobrar o sistema usando IA, sem ser pego. A inteligência artificial é sua nova arma secreta.</p>
+                <button class="cta-button-large">Hackear o Sistema Agora</button>
             </div>
         </div>
     </section>
-    
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title glitch-text" data-text="Fazer Contato">Fazer Contato</h2>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Seu Código (Nome)</label>
-                        <input type="text" id="name" class="form-control" placeholder="Ex: Hacker Visionário" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email" class="form-label">Seu Endereço Digital</label>
-                        <input type="email" id="email" class="form-control" placeholder="Ex: contato@blackhub.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="form-label">O que você precisa hackear?</label>
-                        <textarea id="message" class="form-control" placeholder="Me conte o problema, a gente resolve." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">Enviar Sinal</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">BLACK<span>HUB</span></div>
-                    <p>Hackeando o sistema, dominando o jogo. O código por trás do seu sucesso.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Github">🌐</a>
-                        <a href="#" class="social-link" aria-label="Twitter">✖️</a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">🔗</a>
-                        <a href="#" class="social-link" aria-label="Telegram">✉️</a>
-                    </div>
+                <div class="footer-logo">
+                    <img src="images/Texto-logo.png" alt="BlackHub" class="footer-logo-img">
                 </div>
-                
-                <div class="footer-links">
-                    <h3>Atalhos</h3>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#features">Recursos</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                        <li><a href="#" id="privacy-link">Protocolo de Dados</a></li>
-                    </ul>
+                <div class="footer-text">
+                    <p>&copy; 2024 BlackHub. Todos os direitos reservados.</p>
+                    <p>Black: o código por trás do sucesso.</p>
                 </div>
-                
-                <div class="footer-contact">
-                    <h3>Info. de Contato</h3>
-                    <div class="contact-info">
-                        <span class="contact-icon">📍</span>
-                        <span>Dark Web, Setor 404</span>
-                    </div>
-                    <div class="contact-info">
-                        <span class="contact-icon">📧</span>
-                        <span>contato@blackhub.com</span>
-                    </div>
-                    <div class="contact-info">
-                        <span class="contact-icon">📞</span>
-                        <span>+55 (XX) XXXX-XXXX</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; <span id="current-year"></span> Blackhub. Todos os códigos reservados. | Sucesso Garantido.</p>
             </div>
         </div>
     </footer>
-    
-    <div class="modal" id="demo-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-modal">&times;</span>
-            <h2 style="color: var(--azul-eletrico); margin-bottom: 1.5rem; font-family: 'Orbitron', sans-serif;">Simulador de Glitch</h2>
-            <p style="color: var(--cinza-claro);">Ajuste a intensidade do "bug" digital:</p>
-            
-            <div style="margin: 2rem 0;">
-                <label for="glitch-intensity" style="display: block; margin-bottom: 0.5rem; color: var(--azul-eletrico); font-family: 'Montserrat', sans-serif;">Intensidade Glitch:</label>
-                <input type="range" id="glitch-intensity" min="0" max="100" value="30" style="width: 100%; -webkit-appearance: none; height: 8px; background: var(--cinza-grafite); outline: none; border-radius: 5px; opacity: 0.7; transition: opacity .2s;">
-                <style>
-                    #glitch-intensity::-webkit-slider-thumb {
-                        -webkit-appearance: none;
-                        appearance: none;
-                        width: 20px;
-                        height: 20px;
-                        border-radius: 50%;
-                        background: var(--azul-eletrico);
-                        cursor: pointer;
-                        box-shadow: 0 0 10px var(--azul-eletrico);
-                    }
-                    #glitch-intensity::-moz-range-thumb {
-                        width: 20px;
-                        height: 20px;
-                        border-radius: 50%;
-                        background: var(--azul-eletrico);
-                        cursor: pointer;
-                        box-shadow: 0 0 10px var(--azul-eletrico);
-                    }
-                </style>
-                
-                <div id="glitch-demo" style="margin-top: 2rem; padding: 2rem; background: var(--preto-profundo); border: 1px solid var(--azul-eletrico); text-align: center; color: var(--branco);">
-                    <h3 style="color: var(--azul-eletrico);">Este é o pulo do gato!</h3>
-                    <p style="color: var(--cinza-claro);">Arraste pra ver o sistema falhar (controladamente, claro).</p>
-                </div>
-            </div>
-            
-            <button class="btn" id="apply-glitch">Aplicar Código</button>
-        </div>
-    </div>
-    
-    <div class="back-to-top" id="back-to-top">↑</div>
-    
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Efeito de digitação no título (desativado para o novo layout com dois H1s estáticos)
-        // const typingTitle = document.getElementById('typing-title');
-        // const titleText1 = "Hackeando o Sistema.";
-        // const titleText2 = "Dominando o Jogo.";
-        // let i = 0;
-        // let currentText = titleText1;
-        // let isFirstTitle = true;
 
-        // function typeWriter() {
-        //     if (i < currentText.length) {
-        //         if (isFirstTitle) {
-        //             document.getElementById('title-line-1').innerHTML += currentText.charAt(i);
-        //         } else {
-        //             document.getElementById('title-line-2').innerHTML += currentText.charAt(i);
-        //         }
-        //         i++;
-        //         setTimeout(typeWriter, 100);
-        //     } else {
-        //         if (isFirstTitle) {
-        //             isFirstTitle = false;
-        //             currentText = titleText2;
-        //             i = 0;
-        //             setTimeout(typeWriter, 500); // Pequeno delay antes da segunda linha
-        //         } else {
-        //             document.querySelectorAll('.hero h1').forEach(el => el.classList.add('typing-effect'));
-        //         }
-        //     }
-        // }
-        // typeWriter();
-
-
-        // Menu Mobile
-        const menuBtn = document.getElementById('menu-btn');
-        const navLinks = document.getElementById('nav-links');
-        
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('open');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuBtn.classList.remove('open');
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Ajuste para o header fixo
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Header scroll effect
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Botão voltar ao topo
-            const backToTop = document.getElementById('back-to-top');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-        
-        // Botão voltar ao topo
-        document.getElementById('back-to-top').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Modal de demonstração
-        const openModalBtn = document.getElementById('open-modal');
-        const closeModalBtn = document.getElementById('close-modal');
-        const modal = document.getElementById('demo-modal');
-        const privacyLink = document.getElementById('privacy-link');
-        
-        openModalBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Ação para o link de privacidade
-        privacyLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Protocolo de Dados Blackhub: Seus dados são criptografados com as chaves mais avançadas do submundo digital e nunca serão expostos. A confiança é nosso código.');
-        });
-        
-        // Efeito glitch no modal
-        const glitchIntensity = document.getElementById('glitch-intensity');
-        const glitchDemo = document.getElementById('glitch-demo');
-        const applyGlitchBtn = document.getElementById('apply-glitch');
-        
-        glitchIntensity.addEventListener('input', () => {
-            const intensity = glitchIntensity.value;
-            // Aplicar o efeito de glitch diretamente no texto do modal para demonstração
-            const glitchTextElements = glitchDemo.querySelectorAll('h3, p');
-            glitchTextElements.forEach(el => {
-                const originalText = el.getAttribute('data-original-text') || el.textContent;
-                el.setAttribute('data-original-text', originalText); // Salva o texto original
-                
-                if (intensity > 0) {
-                    const scrambledText = scrambleText(originalText, intensity);
-                    el.textContent = scrambledText;
-                    el.style.filter = `brightness(${1 - intensity / 200}) contrast(${1 + intensity / 100})`;
-                    el.style.textShadow = `0 0 ${intensity / 10}px var(--azul-eletrico), 0 0 ${intensity / 5}px var(--destaque-glitch-vermelho)`;
-                } else {
-                    el.textContent = originalText;
-                    el.style.filter = 'none';
-                    el.style.textShadow = 'none';
-                }
-            });
-        });
-
-        // Função para simular glitch no texto
-        function scrambleText(text, intensity) {
-            let scrambled = '';
-            for (let k = 0; k < text.length; k++) {
-                if (Math.random() * 100 < intensity) {
-                    scrambled += String.fromCharCode(33 + Math.floor(Math.random() * 94)); // Caractere aleatório
-                } else {
-                    scrambled += text[k];
-                }
-            }
-            return scrambled;
-        }
-        
-        applyGlitchBtn.addEventListener('click', () => {
-            const intensity = glitchIntensity.value;
-            alert(`Sinal de glitch transmitido com intensidade de ${intensity}%!`);
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            // Resetar o texto do glitch demo ao fechar
-            glitchDemo.querySelectorAll('h3, p').forEach(el => {
-                el.textContent = el.getAttribute('data-original-text') || el.textContent;
-                el.style.filter = 'none';
-                el.style.textShadow = 'none';
-            });
-            glitchIntensity.value = 0; // Resetar slider
-        });
-        
-        // Formulário de contato
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simulação de envio
-            console.log({ name, email, message });
-            alert(`Mensagem recebida, ${name}! Nossos hackers vão analisar seu pedido.`);
-            contactForm.reset();
-        });
-        
-        // Alternar tema (claro/escuro) - adaptado para o novo esquema de cores
-        const themeToggle = document.getElementById('theme-toggle');
-        let isDarkMode = true;
-        
-        themeToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            isDarkMode = !isDarkMode;
-            
-            if (isDarkMode) {
-                // Voltar para o tema escuro
-                document.documentElement.style.setProperty('--preto-profundo', '#0D0D0D');
-                document.documentElement.style.setProperty('--cinza-grafite', '#1F1F1F');
-                document.documentElement.style.setProperty('--cinza-claro', '#CCCCCC');
-                document.documentElement.style.setProperty('--branco', '#FFFFFF');
-                document.documentElement.style.setProperty('--azul-eletrico', '#00AEEF');
-                themeToggle.textContent = 'MODO CLARO';
-            } else {
-                // Mudar para um tema mais claro/contraste (baseado nas cores de destaque)
-                document.documentElement.style.setProperty('--preto-profundo', '#F0F0F0'); /* Fundo claro */
-                document.documentElement.style.setProperty('--cinza-grafite', '#E0E0E0'); /* Card e elementos */
-                document.documentElement.style.setProperty('--cinza-claro', '#4A4A4A'); /* Texto escuro */
-                document.documentElement.style.setProperty('--branco', '#1A1A1A'); /* Texto principal */
-                document.documentElement.style.setProperty('--azul-eletrico', '#007BBF'); /* Azul mais escuro */
-                themeToggle.textContent = 'MODO ESCURO';
-            }
-        });
-        
-        // Atualizar ano no footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Inicializar partículas
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 60, /* Menos partículas para ser mais sutil */
-                    "density": {
-                        "enable": true,
-                        "value_area": 1000
-                    }
-                },
-                "color": {
-                    "value": "#00AEEF" /* Azul Elétrico */
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.4, /* Um pouco mais opaco */
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 0.8, /* Mais lento */
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 2.5, /* Tamanho menor */
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 1.5, /* Mais lento */
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 120, /* Distância menor */
-                    "color": "#00AEEF",
-                    "opacity": 0.15, /* Mais sutil */
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 0.8, /* Movimento mais lento */
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false, /* Desativar atração para movimento mais orgânico */
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse" /* Repulsão ao invés de grab */
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "bubble" /* Bolhas no clique */
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "repulse": {
-                        "distance": 100, /* Distância de repulsão */
-                        "duration": 0.4
-                    },
-                    "bubble": {
-                        "distance": 200,
-                        "size": 8,
-                        "duration": 2,
-                        "opacity": 0.8,
-                        "speed": 3
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-        
-        // Efeito parallax na imagem sobre (adaptado para menos movimento)
-        const aboutImage = document.querySelector('.about-image img');
-        
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            aboutImage.style.transform = `translateY(${scrollPosition * 0.05}px)`; /* Menos intenso */
-        });
-        
-        // Animação de hover nos cards (mantido, pois é um bom efeito visual)
-        const featureCards = document.querySelectorAll('.feature-card');
-        
-        featureCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const x = e.offsetX;
-                const y = e.offsetY;
-                const { width, height } = card.getBoundingClientRect();
-                const moveX = (x - width / 2) / 15; /* Menos intenso */
-                const moveY = (y - height / 2) / 15; /* Menos intenso */
-                
-                card.style.transform = `perspective(1000px) rotateX(${moveY}deg) rotateY(${-moveX}deg)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
+
