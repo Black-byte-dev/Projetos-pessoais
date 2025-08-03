@@ -49,9 +49,9 @@
                 <h3>Momentos Especiais</h3>
                 <div class="gallery-grid">
                     <div class="photo-card">
-                        <img src="imagens/imagem1.jpeg" alt="Bolo de aniversário delicioso">
+                        <img src="imagens/WhatsApp Image 2025-08-01 at 22.08.39.jpeg" alt="Bolo de aniversário delicioso">
                         <div class="photo-overlay">
-                            <p>nunca senti isso com alguém, só vc </p>
+                            <p>nunca senti isso com alguém, só você.</p>
                         </div>
                     </div>
                 </div>
@@ -88,27 +88,51 @@
                 <div id="giftModal" class="gift-modal">
                     <div class="gift-modal-content">
                         <span class="gift-close" onclick="closeGift()">&times;</span>
-                        <h3>🎵 Sua música especial!</h3>
-                        <p>Uma música carinhosa escolhida especialmente para você:</p>
+                        <h3>🎵 Suas músicas especiais!</h3>
+                        <p>Duas músicas carinhosas escolhidas especialmente para você:</p>
                         
-                        <div class="audio-player">
-                            <audio id="birthdayAudio" controls>
-                                <source src="imagens/musica_aniversario.mpeg" type="audio/mpeg">
-                                Seu navegador não suporta o elemento de áudio.
-                            </audio>
+                        <!-- Áudio Principal -->
+                        <div class="audio-section">
+                            <h4>🎶 Música Principal</h4>
+                            <div class="audio-player">
+                                <audio id="birthdayAudio" controls>
+                                    <source src="Audios/WhatsApp Audio 2025-08-02 at 01.18.35.mpeg" type="audio/mpeg">
+                                    Seu navegador não suporta o elemento de áudio.
+                                </audio>
+                            </div>
+                            
+                            <div class="audio-controls">
+                                <button class="audio-btn play-btn" onclick="toggleAudio('birthdayAudio')">
+                                    <span id="playIcon">▶️</span> <span id="playText">Tocar</span>
+                                </button>
+                                <button class="audio-btn download-btn" onclick="downloadAudio('imagens/musica_aniversario.mpeg', 'musica_aniversario_especial.mpeg')">
+                                    📥 Baixar Música
+                                </button>
+                            </div>
                         </div>
                         
-                        <div class="audio-controls">
-                            <button class="audio-btn play-btn" onclick="toggleAudio()">
-                                <span id="playIcon">▶️</span> <span id="playText">Tocar</span>
-                            </button>
-                            <button class="audio-btn download-btn" onclick="downloadAudio()">
-                                📥 Baixar Música
-                            </button>
+                        <!-- Áudio Bônus -->
+                        <div class="audio-section bonus-section">
+                            <h4>🎁 Música Bônus</h4>
+                            <div class="audio-player">
+                                <audio id="bonusAudio" controls>
+                                    <source src="Audios/musica_bonus.mpeg" type="audio/mpeg">
+                                    Seu navegador não suporta o elemento de áudio.
+                                </audio>
+                            </div>
+                            
+                            <div class="audio-controls">
+                                <button class="audio-btn play-btn-bonus" onclick="toggleAudio('bonusAudio')">
+                                    <span id="playIconBonus">▶️</span> <span id="playTextBonus">Tocar</span>
+                                </button>
+                                <button class="audio-btn download-btn" onclick="downloadAudio('imagens/musica_bonus.mpeg', 'musica_bonus_especial.mpeg')">
+                                    📥 Baixar Bônus
+                                </button>
+                            </div>
                         </div>
                         
                         <p class="gift-note">
-                            💝 Esta música foi escolhida com muito carinho para tornar seu dia ainda mais especial!
+                            💝 Estas músicas foram escolhidas com muito carinho para tornar seu dia ainda mais especial!
                         </p>
                     </div>
                 </div>
@@ -200,12 +224,15 @@
         
         function closeGift() {
             const modal = document.getElementById('giftModal');
-            const audio = document.getElementById('birthdayAudio');
+            const birthdayAudio = document.getElementById('birthdayAudio');
+            const bonusAudio = document.getElementById('bonusAudio');
             const giftBox = document.querySelector('.gift-box');
             
-            // Pausar áudio se estiver tocando
-            audio.pause();
-            updatePlayButton(false);
+            // Pausar ambos os áudios se estiverem tocando
+            birthdayAudio.pause();
+            bonusAudio.pause();
+            updatePlayButton('birthdayAudio', false);
+            updatePlayButton('bonusAudio', false);
             
             // Fechar modal
             modal.classList.remove('show');
@@ -215,21 +242,36 @@
             }, 300);
         }
         
-        function toggleAudio() {
-            const audio = document.getElementById('birthdayAudio');
+        function toggleAudio(audioId) {
+            const audio = document.getElementById(audioId);
+            const otherAudioId = audioId === 'birthdayAudio' ? 'bonusAudio' : 'birthdayAudio';
+            const otherAudio = document.getElementById(otherAudioId);
+            
+            // Pausar o outro áudio se estiver tocando
+            if (!otherAudio.paused) {
+                otherAudio.pause();
+                updatePlayButton(otherAudioId, false);
+            }
             
             if (audio.paused) {
                 audio.play();
-                updatePlayButton(true);
+                updatePlayButton(audioId, true);
             } else {
                 audio.pause();
-                updatePlayButton(false);
+                updatePlayButton(audioId, false);
             }
         }
         
-        function updatePlayButton(isPlaying) {
-            const playIcon = document.getElementById('playIcon');
-            const playText = document.getElementById('playText');
+        function updatePlayButton(audioId, isPlaying) {
+            let playIcon, playText;
+            
+            if (audioId === 'birthdayAudio') {
+                playIcon = document.getElementById('playIcon');
+                playText = document.getElementById('playText');
+            } else {
+                playIcon = document.getElementById('playIconBonus');
+                playText = document.getElementById('playTextBonus');
+            }
             
             if (isPlaying) {
                 playIcon.textContent = '⏸️';
@@ -240,29 +282,44 @@
             }
         }
         
-        function downloadAudio() {
+        function downloadAudio(audioPath, fileName) {
             const link = document.createElement('a');
-            link.href = 'imagens/musica_aniversario.mpeg';
-            link.download = 'musica_aniversario_especial.mpeg';
+            link.href = audioPath;
+            link.download = fileName;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
         
-        // Event listeners para o áudio
+        // Event listeners para os áudios
         document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('birthdayAudio');
+            const birthdayAudio = document.getElementById('birthdayAudio');
+            const bonusAudio = document.getElementById('bonusAudio');
             
-            audio.addEventListener('ended', function() {
-                updatePlayButton(false);
+            // Event listeners para o áudio principal
+            birthdayAudio.addEventListener('ended', function() {
+                updatePlayButton('birthdayAudio', false);
             });
             
-            audio.addEventListener('pause', function() {
-                updatePlayButton(false);
+            birthdayAudio.addEventListener('pause', function() {
+                updatePlayButton('birthdayAudio', false);
             });
             
-            audio.addEventListener('play', function() {
-                updatePlayButton(true);
+            birthdayAudio.addEventListener('play', function() {
+                updatePlayButton('birthdayAudio', true);
+            });
+            
+            // Event listeners para o áudio bônus
+            bonusAudio.addEventListener('ended', function() {
+                updatePlayButton('bonusAudio', false);
+            });
+            
+            bonusAudio.addEventListener('pause', function() {
+                updatePlayButton('bonusAudio', false);
+            });
+            
+            bonusAudio.addEventListener('play', function() {
+                updatePlayButton('bonusAudio', true);
             });
         });
         
