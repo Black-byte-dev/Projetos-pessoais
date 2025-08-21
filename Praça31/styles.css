@@ -118,6 +118,11 @@ body {
     line-height: 1.2;
 }
 
+.hero-content h1 img {
+    max-width: 100%;
+
+    }
+
 .hero-content p {
     font-size: 1.2rem;
     color: #BF5239;
@@ -294,21 +299,14 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pricing-card.featured {
-    background: linear-gradient(135deg, #F28705, #BF5239);
-    color: #F2F2F2;
-    transform: scale(1.05);
-    border-color: #F28705;
-}
+
 
 .pricing-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-.pricing-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
-}
+
 
 .pricing-card h3 {
     color: #BF463B;
@@ -316,9 +314,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.pricing-card.featured h3 {
-    color: #F2F2F2;
-}
+
 
 .price {
     font-size: 2.5rem;
