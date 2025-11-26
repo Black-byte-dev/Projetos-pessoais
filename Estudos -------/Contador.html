@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separador de contas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Separador de dinheiro</h1>
+    <p>salario</p>
+    <input type="number" id="salario" placeholder="Digite o salário" />
+    <p>despesas</p>
+    <input type="number" id="despesas" placeholder="Digite as despesas" />
+    <br><br>
+    <button onclick="calcular()">Calcular</button>
+    <h2 id="resultado"></h2>
+    <script>
+        function calcular() {
+            const salario = Number(document.getElementById('salario').value);
+            const despesas = Number(document.getElementById('despesas').value);
+            if (isNaN(salario) || isNaN(despesas)) {
+                alert('Por favor, insira valores válidos para salário e despesas.');
+                return;
+            }
+            const saldo = salario - despesas;
+            document.getElementById('resultado').innerText = `Saldo restante: R$ ${saldo.toFixed(2)}`;
+        }
+    </script>
+    
+</body>
+</html>
