@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Pomodoro</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    background-color: #000;
+                    color: #0f0;
+                    font-family: 'Courier New', Courier, monospace;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    overflow: hidden;
+                }
+
+                #matrix {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    pointer-events: none;
+                }
+
+                .container {
+                    text-align: center;
+                    position: relative;
+                    z-index: 2;
+                    max-width: 900px;
+                    padding: 2rem;
+                    margin: 0 1rem;
+                    background: rgba(0, 0, 0, 0.8);
+                    border-radius: 12px;
+                }
+
+                h1 {
+                    font-size: 6em;
+                    margin-bottom: 0.5em;
+                }
+
+                .timer {
+                    font-size: 7em;
+                    font-weight: bold;
+                }
+
+                button {
+                    margin-top: 2rem;
+                    padding: 0.7rem 2rem;
+                    font-size: 1.2em;
+                    background-color: #0f0;
+                    color: #000;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: background-color 0.3s;
+                }
+
+                button:hover {
+                    background-color: #00cc00;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Pomodoro</h1>
+                <div class="timer">40:00</div>
+                <button id="startBtn">Iniciar</button>
+            </div>
+
+            <canvas id="matrix"></canvas>
+
+            <script>
+                const canvas = document.getElementById('matrix');
+                const ctx = canvas.getContext('2d');
+                const timerDisplay = document.querySelector('.timer');
+                const startBtn = document.getElementById('startBtn');
+
+                let timeRemaining = 40 * 60;
+                let isRunning = false;
+                let timerInterval;
+
+                // Canvas setup
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                // Matrix effect
+                const fontSize = 14;
+                const columns = Math.floor(canvas.width / fontSize);
+                const drops = Array(columns).fill(1);
+                const chars = '01';
+
+                function formatTime(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+                }
+
+                function updateDisplay() {
+                    timerDisplay.textContent = formatTime(timeRemaining);
+                }
+
+                function startTimer() {
+                    if (isRunning) return;
+                    isRunning = true;
+                    startBtn.textContent = 'Em andamento...';
+
+                    timerInterval = setInterval(() => {
+                        if (timeRemaining > 0) {
+                            timeRemaining--;
+                            updateDisplay();
+                        } else {
+                            stopTimer();
+                            alert('Pomodoro finalizado!');
+                            timeRemaining = 25 * 60;
+                            updateDisplay();
+                            startBtn.textContent = 'Iniciar';
+                        }
+                    }, 1000);
+                }
+
+                function stopTimer() {
+                    clearInterval(timerInterval);
+                    isRunning = false;
+                    startBtn.textContent = 'Iniciar';
+                }
+
+                function drawMatrix() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#0f0';
+                    ctx.font = `${fontSize}px monospace`;
+
+                    for (let i = 0; i < drops.length; i++) {
+                        const char = chars[Math.floor(Math.random() * chars.length)];
+                        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                            drops[i] = 0;
+                        }
+                        drops[i]++;
+                    }
+                }
+
+                // Event listeners
+                startBtn.addEventListener('click', startTimer);
+                document.addEventListener('keypress', (e) => {
+                    if (e.code === 'Space') startTimer();
+                });
+
+                window.addEventListener('resize', () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+
+                // Animation loop
+                setInterval(drawMatrix, 33);
+                updateDisplay();
+            </script>
+        </body>
+        </html>
