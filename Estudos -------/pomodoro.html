@@ -69,12 +69,24 @@
                 button:hover {
                     background-color: #00cc00;
                 }
+
+                .glitch {
+                    color: #0f0;
+                    position: relative;
+                    animation: glitch 1s infinite;
+                }
+        
+        @keyframes glitch { 
+            0% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; } 
+            50% { text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; } 
+            100% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; } } 
             </style>
+            
         </head>
         <body>
             <div class="container">
-                <h1>Pomodoro</h1>
-                <div class="timer">40:00</div>
+                <h1 class="glitch">Pomodoro</h1>
+                <div class="timer glitch">40:00</div>
                 <button id="startBtn">Iniciar</button>
             </div>
 
